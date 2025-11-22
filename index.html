@@ -1,0 +1,258 @@
+<!--Version de HTML-->
+<!DOCTYPE html>
+<!--Inicio de la pagiona web-->
+<html lang="es">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <!--Titutlo de Navegacion-->
+    <title> G&A </title> 
+    <!-- Logo de Navegacion -->
+    <link rel = "icon" href = "Logo_Principal.ico" type = "image/x-icon">
+    <!-- Enlaces a hojas de estilo -->
+    <link rel = "stylesheet" href = "CSS/index.css">
+</head>
+
+<!--Contenido de la Pagina-->
+<body>
+    <!--Menu de navegacion-->
+    <header>
+        <!--Contenido-->
+        <div class = "menu_navegacion">
+            <div class = "contenedor">
+                <div class = "logo">
+                    <!--Ruta relativa-->
+                    <a href = "index.html">
+                        <!--Ruta de imagen // src = ruta // alt = nombre // style = (width = ancho // height = alto)-->
+                        <img src = "Logo_Principal.png" alt = "G&A" style = "width: 60px; height: auto;">
+                    </a>
+                </div>
+
+                <nav>
+                    <!--Lista no ordenada-->
+                    <ul>
+                        <li><a href = "index.html"> Inicio </a></li>
+                        <li><a href = "Paginas/catalogo.html"> Catalogo </a></li>
+                        <li><a href = "Paginas/oferta.html"> Ofertas </a></li>
+                        <li><a href = "Paginas/ubicacion.html"> Ubicacion </a></li>
+                        <li><a href = "Paginas/carrito.html"> Carrito </a></li>
+                        <li><a href = "Paginas/cuenta.html"> Cuenta </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!--Contenido principal-->
+    <main>
+        <!--Seccion inicio-->
+        <!--class = espacio pagina-->
+        <section class = "inicio">
+            <!--class = configuracion del dezlizante-->
+            <div class= "inicio_deslizante">
+                <!--class = configuracion de la imagen-->
+                <div class = "deslizante">
+                    <img src = "Imagenes/Presentacion/zelda.jpg" alt = "Zelda">
+                </div>
+
+                <div class = "deslizante">
+                    <img src = "Imagenes/Presentacion/spiderman.jpg" alt = "Spider-Man">
+                </div>
+
+                <div class = "deslizante">
+                    <img src = "Imagenes/Presentacion/rainbow.jpg" alt = "Tom-Clancys-Rainbow-Six-Siege">
+                </div>
+
+                <div class = "deslizante">
+                    <img src = "Imagenes/Presentacion/overwatch.jpg" alt = "Overwatch-2">
+                </div>
+
+                <div class = "deslizante">
+                    <img src = "Imagenes/Presentacion/helldivers.jpg" alt = "Helldivers">
+                </div>
+
+                <div class = "deslizante">
+                    <img src = "Imagenes/Presentacion/halo.jpg" alt = "Halo">
+                </div>
+
+                <div class = "deslizante">
+                    <img src = "Imagenes/Presentacion/gears.jpg" alt = "Gears">
+                </div>
+
+                <div class = "deslizante">
+                    <img src = "Imagenes/Presentacion/batman.jpg" alt = "Batman-Arkham">
+                </div>
+            </div>
+
+            <div class = "contenido_inicio">
+                <!--Titulo principal-->
+                <h1 id = "inicio"> Los mejores videojuegos en un solo lugar </h1>
+                <h2> Descubre titulos exclusivos y ofertas especiales </h2>
+                <a href = "Paginas/catalogo.html" class="boton_presentacion"> Explorar catálogo </a>
+            </div>
+        </section>
+
+        <!--Seccion introduccion-->
+        <section class = "introduccion">
+            <div class = "contenedor">
+                <h2 id = "introduccion"> Bienvenido </h2>
+                <p> En <strong>G&amp;A</strong> reunimos lo mejor del universo gamer en un solo lugar. Ofrecemos títulos icónicos, estrenos recientes y ofertas exclusivas con entrega digital inmediata y 100 % segura. </p>
+                <p> Nuestra obgetivo es brindarte una experiencia de compra ágil, confiable y transparente, para que encuentres tu próximo juego favorito en cuestión de segundos y con la total tranquilidad de comprar en una plataforma diseñada por gamers, para gamers. </p>
+            </div>
+        </section>
+
+        <!--Seccion presentacion-->
+        <section class = "presentacion">
+            <!--class = tamaño del contenedor-->
+            <div class = "contenedor">
+                <!--Subtiulo presentacion-->
+                <h2 id = "titulo_presentacion"> ¿Por qué elegirnos? </h2>
+                <!--class = tamaño del espacio de las targetas-->
+                <div class = "espacio_presentacion">
+                    <!--class = diseño de las targetas-->
+                    <div class = "targeta_presentacion">
+                        <!--class = diseño del icono-->
+                        <div class = "targeta_icono"> 🚀 </div>
+                        <h3> Acceso Rapido </h3>
+                        <p> Tu código disponible al momento de la compra </p>
+                    </div>
+
+                    <div class = "targeta_presentacion">
+                        <div class = "targeta_icono"> 🛡️ </div>
+                        <h3> Compra Segura </h3>
+                        <p> Transacciones 100% seguras con encriptación bancaria </p>
+                    </div>
+
+                    <div class = "targeta_presentacion">
+                        <div class = "targeta_icono"> 💰 </div>
+                        <h3> Mejor Precio </h3>
+                        <p> Garantía de mejor precio o te devolvemos la diferencia </p>
+                    </div>
+
+                    <div class = "targeta_presentacion">
+                        <div class = "targeta_icono"> 🎮 </div>
+                        <h3> Soporte Gamer </h3>
+                        <p> Asistencia especializada de gamers para gamers </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--Seccion mision-->
+        <section class = "mision">
+            <div class = "contenedor">
+                <h2 id = "mision"> Misión </h2>
+                <p> Brindar a la comunidad gamer una experiencia de compra <strong>rápida, segura y transparente</strong>, ofreciendo un catálogo curado con disponibilidad inmediata y soporte especializado que inspire confianza en cada transacción. </p>
+            </div>
+        </section>
+
+        <!--Seccion mision-->
+        <section class = "vision">
+            <div class = "contenedor">
+                <h2 id = "vision"> Visión </h2>
+                <p> Convertirnos en la <strong>plataforma líder en venta videojuegos</strong> de habla hispana, destacando por servicio excepcional, precios justos e innovación continua, conectando a más jugadores con los mundos que aman. </p>
+            </div>
+        </section>
+
+        <section class = "valores">
+            <div class = "contenedor">
+                <h2 id = "valores"> Valores </h2>
+                <div class = "espacio_valores">
+                    <div class = "valor">
+                        <h3> 🎯 Compromiso </h3>
+                        <p> Nos dedicamos a ofrecer una experiencia de compra confiable, eficiente y centrada en el jugador.</p>
+                    </div>
+
+                    <div class = "valor">
+                        <h3> 🤝 Integridad </h3>
+                        <p> Actuamos con honestidad y transparencia en cada transacción y comunicación.</p>
+                    </div>
+
+                    <div class = "valor">
+                        <h3>💡 Innovación </h3>
+                        <p> Buscamos constantemente mejorar la plataforma para brindar soluciones modernas al mundo gamer.</p>
+                    </div>
+
+                    <div class = "valor">
+                        <h3> ⚙️ Responsabilidad </h3>
+                        <p> Priorizamos la seguridad, la satisfacción del cliente y la sostenibilidad digital en cada proceso.</p>
+                    </div>
+
+                    <div class = "valor">
+                        <h3> 🎮 Pasión</h3>
+                        <p> Amamos los videojuegos tanto como nuestros clientes, y eso se refleja en todo lo que hacemos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+    
+    <!--Pie de pagina-->
+    <footer>
+        <div class = "contenedor">
+            <div class = "espacio_footer">
+                <!--General-->
+                <div class = "seccion_footer">
+                    <h3>G&A</h3>
+                    <p> Tu plataforma de videojuegos de confianza </p>
+                </div>
+
+                <!--Enlaces rapidos-->
+                <div class = "seccion_footer">
+                    <h4> Descurbir </h4>
+                    <ul>
+                        <li><a href = "./index.html"> Inicio </a></li>
+                        <li><a href = "Paginas/catalogo.html"> Catalogo </a></li>
+                        <li><a href = "Paginas/oferta.html"> Ofertas </a></li>
+                        <li><a href = "Paginas/ubicacion.html"> Ubicación </a></li>
+                        <li><a href = "Paginas/carrito.html"> Carrito </a></li>
+                    </ul>
+                </div>
+
+                <!--Soporte-->
+                <div class = "seccion_footer">
+                    <h4> Soporte </h4>
+                    <ul>
+                        <li><a href = "Paginas/soporte.html"> Soporte </a></li>    
+                        <li><a href = "Paginas/cuenta.html"> Cuenta </a></li>
+                    </ul>
+                </div> 
+
+                <!--Legal-->
+                <div class = "seccion_footer">
+                    <h4> Valores </h4>
+                    <ul>
+                        <li><a href = "Paginas/terminos.html"> Términos y condiciones </a></li>
+                        <li><a href = "Paginas/privacidad.html"> Política de privacidad </a></li>
+                    </ul>
+                </div> 
+
+                <!--Redes sociales-->
+                <div class = "seccion_footer">
+                    <h4> Siguenos </h4>
+                    <div class = "link_social">
+                        <ul>
+                            <li> <a href = "" target = "_blank"> <img src = "Imagenes/Redes Sociales/facebook.jpg" alt = "Facebook" > </a> </li>
+                            <li> <a href = "" target = "_blank"> <img src = "Imagenes/Redes Sociales/x.jpg" alt = "X"> </a> </li>
+                            <li> <a href = "" target = "_blank"> <img src = "Imagenes/Redes Sociales/instagram.jpg" alt = "Instagram"> </a> </li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+            
+            <!-- Derechos reservados -->
+            <div class = "derechos">
+                <p> &copy; 2025 G&A. Todos los derechos reservados </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src = "./JavaScript/carrucel.js"> </script>
+    
+</body>
+</html>
+

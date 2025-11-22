@@ -1,0 +1,362 @@
+<!--Version de HTML-->
+<!DOCTYPE html>
+<!--Inicio de la pagiona web-->
+<html lang="es">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <!--Titutlo de Navegacion-->
+    <title> Carrito </title> 
+    <!-- Logo de Navegacion -->
+    <link rel = "icon" href = "../Logo_Principal.ico" type = "image/x-icon">
+    <!-- Enlaces a hojas de estilo -->
+    <link rel = "stylesheet" href = "../CSS/carrito.css">
+    <!-- Agregar después de tus estilos CSS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<!--Contenido de la Pagina-->
+<body>
+    <!--Menu de navegacion-->
+    <header>
+        <!--Contenido-->
+        <div class = "menu_navegacion">
+            <div class = "contenedor">
+                <div class = "logo">
+                    <!--Ruta relativa-->
+                    <a href = "../index.html">
+                        <!--Ruta de imagen // src = ruta // alt = nombre // style = (width = ancho // height = alto)-->
+                        <img src = "../Logo_Principal.png" alt = "G&A" style = "width: 60px; height: auto;">
+                    </a>
+                </div>
+
+                <nav>
+                    <!--Lista no ordenada-->
+                    <ul>
+                        <li><a href = "../index.html"> Inicio </a></li>
+                        <li><a href = "catalogo.html"> Catalogo </a></li>
+                        <li><a href = "oferta.html"> Ofertas </a></li>
+                        <li><a href = "ubicacion.html"> Ubicacion </a></li>
+                        <li><a href = "carrito.html"> Carrito </a></li>
+                        <li><a href = "cuenta.html"> Cuenta </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--Titulo-->
+        <section class="carrito">
+            <div class="contenedor">
+                <!--Titulo principal-->
+                <h1> Carrito de Compras </h1>
+                <div class="contendor_carrito">
+                    <div class="obgeto_carrito">
+                        <!-- Carrito vacío -->
+                        <div class="carrito-vacio" v-if="carrito.length === 0">
+                            <div class="icono-carrito-vacio">🛒</div>
+                            <h3>Tu carrito está vacío</h3>
+                            <p>Agrega algunos juegos increíbles para comenzar</p>
+                            <a href="./catalogo.html" class="boton_compra">Descubrir Juegos</a>
+                        </div>
+                        
+                        <!-- Items del carrito -->
+                        <div class="item-carrito" v-for="item in carrito" :key="item.nombre">
+                            <img :src="item.imagen" :alt="item.nombre" @error="manejarErrorImagen">
+                            <div class="info-item">
+                                <h4>{{ item.nombre }}</h4>
+                                <div class="precios">
+                                    <span class="precio_original" v-if="item.descuento">${{ item.precioOriginal.toFixed(2) }}</span>
+                                    <span :class="item.descuento ? 'precio_descuento' : 'precio_normal'">
+                                        ${{ item.precio.toFixed(2) }}
+                                    </span>
+                                    <span class="descuento" v-if="item.descuento">-{{ item.descuento }}%</span>
+                                </div>
+                            </div>
+                            <div class="controles-cantidad">
+                                <button class="btn-cantidad" @click="disminuirCantidad(item.nombre)">-</button>
+                                <span class="cantidad">{{ item.cantidad }}</span>
+                                <button class="btn-cantidad" @click="aumentarCantidad(item.nombre)">+</button>
+                            </div>
+                            <div class="subtotal">${{ (item.precio * item.cantidad).toFixed(2) }}</div>
+                            <button class="btn-eliminar" @click="eliminarProducto(item.nombre)" title="Eliminar">×</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Resumen del carrito -->
+                    <div class="resumen_carrito" v-if="carrito.length > 0">
+                        <div class="resumen">
+                            <h3>Resumen de Compra</h3>
+                            <div class="detalles-resumen">
+                                <div class="linea-resumen">
+                                    <span>Productos ({{ totalItems }}):</span>
+                                    <span>${{ subtotal.toFixed(2) }}</span>
+                                </div>
+                                <div class="linea-resumen">
+                                    <span>Envío:</span>
+                                    <span>Gratis</span>
+                                </div>
+                                <div class="linea-resumen">
+                                    <span>Impuestos:</span>
+                                    <span>Incluidos</span>
+                                </div>
+                                <div class="separador"></div>
+                                <div class="linea-resumen total">
+                                    <span><strong>Total:</strong></span>
+                                    <span><strong>${{ total.toFixed(2) }}</strong></span>
+                                </div>
+                            </div>
+                            <button class="boton_compra btn-pagar" @click="procesarPago">Proceder al Pago</button>
+                            <button class="btn-vaciar-carrito" @click="vaciarCarrito">Vaciar Carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Componente de mensaje -->
+        <div class="mensaje-carrito" v-if="mensaje.visible" :style="{ 
+            position: 'fixed', 
+            top: '100px', 
+            right: '20px', 
+            background: '#ffffff', 
+            color: '#050524', 
+            padding: '1rem 2rem', 
+            borderRadius: '10px', 
+            fontWeight: '600', 
+            zIndex: '10000',
+            animation: 'slideIn 0.3s ease',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+        }">
+            {{ mensaje.texto }}
+        </div>
+    </main>
+
+
+    <footer>
+        <div class = "contenedor">
+            <div class = "espacio_footer">
+                <div class = "seccion_footer">
+                    <h3>G&A</h3>
+                    <p> Tu plataforma de videojuegos de confianza </p>
+                </div>
+
+                <div class = "seccion_footer">
+                    <h4> Descurbir </h4>
+                    <ul>
+                        <li><a href = "../index.html"> Inicio </a></li>
+                        <li><a href = "./catalogo.html"> Catalogo </a></li>
+                        <li><a href = "./oferta.html"> Ofertas </a></li>
+                        <li><a href = "./ubicacion.html"> Ubicación </a></li>
+                        <li><a href = "./carrito.html"> Carrito </a></li>
+                    </ul>
+                </div>
+
+                <div class = "seccion_footer">
+                    <h4> Soporte </h4>
+                    <ul>
+                        <li><a href = "./soporte.html"> Soporte </a></li>    
+                        <li><a href = "./cuenta.html"> Cuenta </a></li>
+                    </ul>
+                </div> 
+
+                <div class = "seccion_footer">
+                    <h4> Valores </h4>
+                    <ul>
+                        <li><a href = "./terminos.html"> Términos y condiciones </a></li>
+                        <li><a href = "./privacidad.html"> Política de privacidad </a></li>
+                    </ul>
+                </div> 
+
+                <div class = "seccion_footer">
+                    <h4> Siguenos </h4>
+                    <div class = "link_social">
+                        <ul>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/facebook.jpg" alt = "Facebook" > </a> </li>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/x.jpg" alt = "X"> </a> </li>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/instagram.jpg" alt = "Instagram"> </a> </li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+            
+            <div class = "derechos">
+                <p> &copy; 2025 G&A. Todos los derechos reservados </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    carrito: [],
+                    mensaje: {
+                        texto: '',
+                        visible: false
+                    }
+                }
+            },
+            computed: {
+                // Calcular total de items
+                totalItems() {
+                    return this.carrito.reduce((total, item) => total + item.cantidad, 0);
+                },
+                // Calcular subtotal
+                subtotal() {
+                    return this.carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
+                },
+                // Calcular total (mismo que subtotal en este caso)
+                total() {
+                    return this.subtotal;
+                }
+            },
+            mounted() {
+                this.cargarCarrito();
+                this.actualizarContadorCarrito();
+            },
+            methods: {
+                // Cargar carrito desde localStorage
+                cargarCarrito() {
+                    const carritoGuardado = localStorage.getItem('carrito');
+                    this.carrito = carritoGuardado ? JSON.parse(carritoGuardado) : [];
+                },
+                
+                // Guardar carrito en localStorage
+                guardarCarrito() {
+                    localStorage.setItem('carrito', JSON.stringify(this.carrito));
+                    this.actualizarContadorCarrito();
+                },
+                
+                // Actualizar contador en el navegador
+                actualizarContadorCarrito() {
+                    const totalItems = this.totalItems;
+                    const contadores = document.querySelectorAll('.contador-carrito');
+                    
+                    contadores.forEach(contador => {
+                        contador.textContent = totalItems;
+                        contador.style.display = totalItems > 0 ? 'inline-block' : 'none';
+                    });
+                    
+                    localStorage.setItem('carritoCount', totalItems);
+                },
+                
+                // Aumentar cantidad
+                aumentarCantidad(nombre) {
+                    const item = this.carrito.find(item => item.nombre === nombre);
+                    if (item) {
+                        item.cantidad++;
+                        this.guardarCarrito();
+                    }
+                },
+                
+                // Disminuir cantidad
+                disminuirCantidad(nombre) {
+                    const item = this.carrito.find(item => item.nombre === nombre);
+                    if (item) {
+                        if (item.cantidad > 1) {
+                            item.cantidad--;
+                        } else {
+                            this.eliminarProducto(nombre);
+                            return;
+                        }
+                        this.guardarCarrito();
+                    }
+                },
+                
+                // Eliminar producto
+                eliminarProducto(nombre) {
+                    this.carrito = this.carrito.filter(item => item.nombre !== nombre);
+                    this.guardarCarrito();
+                    this.mostrarMensaje('Producto eliminado del carrito');
+                },
+                
+                // Vaciar carrito
+                vaciarCarrito() {
+                    if (this.carrito.length === 0) {
+                        this.mostrarMensaje('El carrito ya está vacío');
+                        return;
+                    }
+                    
+                    if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
+                        this.carrito = [];
+                        this.guardarCarrito();
+                        this.mostrarMensaje('Carrito vaciado');
+                    }
+                },
+                
+                // Procesar pago
+                procesarPago() {
+                    if (this.carrito.length === 0) {
+                        this.mostrarMensaje('Tu carrito está vacío');
+                        return;
+                    }
+
+                    const total = this.total;
+                    if (confirm(`¿Proceder con el pago de $${total.toFixed(2)}?`)) {
+                        this.mostrarMensaje('¡Compra realizada con éxito! Los juegos están en tu biblioteca.');
+                        this.carrito = [];
+                        this.guardarCarrito();
+                    }
+                },
+                
+                // Manejar error de imagen
+                manejarErrorImagen(event) {
+                    event.target.src = '../Imagenes/error_imagen.jpg';
+                },
+                
+                // Mostrar mensaje
+                mostrarMensaje(texto) {
+                    this.mensaje.texto = texto;
+                    this.mensaje.visible = true;
+                    
+                    setTimeout(() => {
+                        this.mensaje.visible = false;
+                    }, 3000);
+                },
+                
+                // Método para agregar producto desde otras páginas
+                agregarProducto(nombre, precio, imagen, descuento = null) {
+                    if (!nombre || !precio || !imagen) {
+                        console.error('Datos del producto incompletos');
+                        return false;
+                    }
+
+                    const precioNumerico = parseFloat(precio);
+                    if (isNaN(precioNumerico)) {
+                        console.error('Precio inválido:', precio);
+                        return false;
+                    }
+
+                    const productoExistente = this.carrito.find(item => item.nombre === nombre);
+                    
+                    if (productoExistente) {
+                        productoExistente.cantidad += 1;
+                    } else {
+                        this.carrito.push({
+                            nombre: nombre,
+                            precio: precioNumerico,
+                            precioOriginal: descuento ? precioNumerico / (1 - (descuento / 100)) : precioNumerico,
+                            imagen: imagen,
+                            cantidad: 1,
+                            descuento: descuento
+                        });
+                    }
+                    
+                    this.guardarCarrito();
+                    this.mostrarMensaje(`${nombre} agregado al carrito`);
+                    return true;
+                }
+            }
+        }).mount('main');
+    </script>
+
+    <!-- Archivo JavaScript -->
+    <script src = "../JavaScript/carrito.js"></script>
+    
+    </body>
+</html>

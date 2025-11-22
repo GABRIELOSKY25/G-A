@@ -1,0 +1,672 @@
+/* Reiniciar estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    /* Caligrafia */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, Tahoma, Geneva, Verdana, sans-serif; 
+    /* Interlineado */
+    line-height: 1.6;
+    color: #333;
+    /* Color fondo */
+    background-color: #050524;
+    /* Control de desbordamiento */
+    overflow-x: hidden;
+}
+
+/* Menu de navegacion */
+header {
+    /* Color fondo */
+    background-color: rgba(0, 0, 0, 0.021);
+    /* Desenfoque */
+    backdrop-filter: blur(10px);
+    /* Posicicion de pagina */
+    position: fixed;
+    /* Area de ancho */
+    width: 100%;
+    /* Posicion borde superior */
+    top: 0;
+    /* Posicion eje Z */
+    z-index: 1000;
+}
+
+.menu_navegacion {
+    /* Area de ancho */
+    width: 100%;
+}
+
+.menu_navegacion .contenedor {
+    /* Contenedor flexible */
+    display: flex;
+    /* Espaciado igual entre elementos */
+    justify-content: space-between;
+    /* Alinear elementos */
+    align-items: center;
+    /* Espacio interno */
+    padding: 1rem 2rem;
+    /* Ancho maximo */
+    max-width: 1400px;
+    /* Margen */
+    margin: 0 auto;
+}
+
+/* Ajustes de logo */
+.logo img {
+    /* Animacion */
+    transition: transform 0.5s ease;
+    /* Esquinas redondeadas */
+    border-radius: 8px;
+}
+
+.logo img:hover {
+    /* Aumentar tamaño */
+    transform: scale(1.2);
+}
+
+/* Ajustes de barra de navegacion */
+nav ul {
+    /* Contenedor flexible */
+    display: flex;
+    /* Quitar marcadores de lista */
+    list-style: none;
+    /* Espacio entre elementos */
+    gap: 2rem;
+}
+
+/* Ajustes de barra de navegacion */
+nav a {
+    /* Quitar subrallado de vinculo */
+    text-decoration: none;
+    color: #ffffff;
+    /* Grosor de letra navegacion*/
+    font-weight: 400;
+    /* Espacio interno */
+    padding: 0.5rem 1rem;
+    /* Esquinas redondeadas */
+    border-radius: 5px;
+    /* Transicion */
+    transition: all 0.3s ease;
+    /* Posicionamiento */
+    position: relative;
+}
+
+/* Ajustes de lista de navegacion */
+nav a:hover {
+    /* Color de letra */
+    color: #00d9ff;
+    /* Color de fondo */
+    background: rgba(255, 255, 255, 0.183);
+    transform: translateY(-2px);
+}
+
+/* Ajusta sobreado */
+nav a::after {
+    /* Contenido */
+    content: '';
+    /* Posicion */
+    position: absolute;
+    /* Sombreado de boton */
+    bottom: 0;
+    /* Posicion centrado */
+    left: 50%;
+    /* Area de ancho */
+    width: 0;
+    /* Grosor de la barra */
+    height: 2px;
+    /* Esquinas redondeadas */
+    border-radius: 50px;
+    background: #ffffff;
+    /* Centrar barra */
+    transition: all 0.5s ease;
+    /* Centrar barra */
+    transform: translateX(-50%);
+}
+
+/* Ancho de la barra */
+nav a:hover::after {
+    width: 75%;
+}
+
+/* Configuracion main */
+main {
+    /* Bajar el contenido de main */
+    margin-top: 0px;
+}
+
+/* Sección título */
+.titulo {
+    background: linear-gradient(150deg, #35ffa7d3, #f7921ed6);
+    padding: 150px 0 150px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.titulo h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.425);
+}
+
+/* Sección juegos destacados */
+.juegos_destacados {
+    background: #050524;
+    color: white;
+    padding: 5rem 0;
+}
+
+.juegos_destacados h2 {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+/* Cuadrícula de juegos */
+.cuadricula_juegos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+/* Tarjeta de juego - Diseño alternativo */
+.targeta_jugo {
+    background: rgba(94, 81, 88, 0.329);
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.7s ease;
+    position: relative;
+}
+
+.targeta_jugo:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #00d9ff;
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.3);
+}
+
+.targeta_jugo img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 0;
+    margin-bottom: 0;
+    transition: transform 0.7s ease;
+}
+
+.targeta_jugo:hover img {
+    transform: scale(1.07);
+}
+
+.targeta_jugo h3 {
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-size: 1.7rem;
+    padding: 0.9rem 1.5rem 0.5rem;
+    text-align: center;
+}
+
+.targeta_jugo p {
+    color: #d2d1d1;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    padding: 0 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Precio del juego */
+.precio {
+    color: #d2d1d1;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* Contenedor del botón */
+.targeta_jugo > div {
+    padding: 0 1rem 0.5rem;
+    width: 100%;
+}
+
+/* Botón de compra - Diseño diferente */
+.boton_compra {
+    display: block !important;
+    margin: 0 auto 1.5rem !important;  
+    padding: 1rem 4rem;
+    background: white;
+    color: #050524;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.boton_compra:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1px 20px rgba(255, 255, 255, 0.265);
+    background: #00d9ff;
+}
+
+.cuadricula_juegos {
+    background: #050524;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    padding: 4rem;
+}
+
+.catalogo h2 {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+    color: #ffffff;
+    
+}
+
+/* Contenedor de filtros */
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Estilos para los select - Diseño nuevo */
+.filtros select {
+    background: rgba(255, 163, 50, 0.683);
+    color: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    padding: 0.9rem 0.8rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 220px;
+    backdrop-filter: blur(10px);
+}
+
+.filtros select:hover {
+    background: rgba(255, 255, 255, 0);
+    border-color: rgba(255, 163, 50, 0.683);
+    transform: translateY(-2px);
+    box-shadow: 0 1px 25px rgba(255, 255, 255, 0.199);
+}
+
+.filtros select:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0);
+    border-color: rgba(255, 163, 50, 0.683);
+    box-shadow: 0 1px 30px rgba(255, 255, 255, 0.199);
+}
+
+/* Opciones del select */
+.filtros option {
+    background: #1a1a2e;
+    color: #ffffff;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: rgba(7, 3, 30, 0.557);  
+    color: #e2e8f0;
+    padding: 3rem 1rem 1rem;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Contenedor principal */
+.contenedor {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Distribución de columnas */
+.espacio_footer {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 2rem; 
+    margin-bottom: 1rem;
+    justify-content: space-between; /* Cambiado a space-between */
+}
+
+.seccion_footer {
+    flex: 0 1 auto; /* Cambiado de flex: 1 */
+    min-width: 130px;
+    max-width: 1000px;
+    text-align: center; /* Centrar texto dentro de cada sección */
+}
+
+/* Secciones */
+.seccion_footer h3,
+.seccion_footer h4 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Texto descriptivo */
+.seccion_footer p {
+    color: #a3aab4;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Listas */
+.seccion_footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.seccion_footer ul li {
+    margin-bottom: 0.6rem;
+}
+
+/* Enlaces */
+.seccion_footer a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.seccion_footer a:hover {
+    color: #00d9ff;
+    transform: translateX(4px);
+}
+
+/* Redes sociales */
+.link_social ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;  
+}
+
+.link_social ul li {
+    margin-bottom: 0.8rem; 
+}
+
+.link_social ul li img {
+    width: 32px; /* Tamaño de las imágenes */
+    height: 32px;
+    transition: transform 0.3s ease;
+}
+
+.link_social ul li img:hover {
+    transform: scale(1.3); /* Efecto hover */
+}
+
+/* Derechos reservados */
+.derechos {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    color: #94a3b8;
+}
+
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+/* TABLET (768px - 1024px) */
+@media (max-width: 1024px) {
+    /* Navegación */
+    .menu_navegacion .contenedor {
+        padding: 1rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* Títulos */
+    .titulo h1 {
+        font-size: 3.5rem;
+    }
+
+    .juegos_destacados h2,
+    .catalogo h2 {
+        font-size: 2.8rem;
+    }
+
+    /* Cuadrícula de juegos */
+    .cuadricula_juegos {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    /* Filtros */
+    .filtros {
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .filtros select {
+        min-width: 180px;
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* MÓVIL GRANDE (576px - 768px) */
+@media (max-width: 768px) {
+    /* Header y navegación */
+    .menu_navegacion .contenedor {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.8rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    main {
+        margin-top: 120px;
+    }
+
+    /* Títulos */
+    .titulo {
+        padding: 80px 0;
+    }
+
+    .titulo h1 {
+        font-size: 2.8rem;
+    }
+
+    .juegos_destacados h2,
+    .catalogo h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Secciones */
+    .juegos_destacados {
+        padding: 3rem 0;
+    }
+
+    /* Cuadrícula de juegos */
+    .cuadricula_juegos {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .targeta_jugo img {
+        height: 350px;
+    }
+
+    .targeta_jugo h3 {
+        font-size: 1.4rem;
+        padding: 0.7rem 1rem 0.3rem;
+    }
+
+    /* Filtros */
+    .filtros {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .filtros select {
+        width: 90%;
+        max-width: 300px;
+        font-size: 1rem;
+    }
+
+    /* Botones */
+    .boton_compra {
+        padding: 0.8rem 2.5rem;
+        font-size: 1rem;
+    }
+
+    /* Footer */
+    .espacio_footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+    }
+}
+
+/* MÓVIL PEQUEÑO (hasta 576px) */
+@media (max-width: 576px) {
+    /* Header */
+    .menu_navegacion .contenedor {
+        padding: 0.5rem;
+    }
+
+    nav ul {
+        gap: 0.5rem;
+    }
+
+    nav a {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    main {
+        margin-top: 140px;
+    }
+
+    /* Títulos */
+    .titulo {
+        padding: 60px 0;
+    }
+
+    .titulo h1 {
+        font-size: 2.2rem;
+    }
+
+    .juegos_destacados h2,
+    .catalogo h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Cuadrícula de juegos */
+    .cuadricula_juegos {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+    .targeta_jugo img {
+        height: 300px;
+    }
+
+    .targeta_jugo h3 {
+        font-size: 1.3rem;
+        padding: 0.5rem 0.8rem 0.2rem;
+    }
+
+    .targeta_jugo p {
+        padding: 0 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    /* Precio */
+    .precio {
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+    }
+
+    /* Botones */
+    .boton_compra {
+        padding: 0.7rem 2rem;
+        font-size: 0.9rem;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Footer */
+    footer {
+        padding: 2rem 1rem 1rem;
+    }
+
+    .seccion_footer h3,
+    .seccion_footer h4 {
+        font-size: 1.2rem;
+    }
+}
+
+/* MÓVIL MUY PEQUEÑO (hasta 400px) */
+@media (max-width: 400px) {
+    .titulo h1 {
+        font-size: 1.8rem;
+    }
+
+    .juegos_destacados h2,
+    .catalogo h2 {
+        font-size: 1.5rem;
+    }
+
+    .targeta_jugo img {
+        height: 250px;
+    }
+
+    .cuadricula_juegos {
+        padding: 0.5rem;
+    }
+}
+
+/* ACCESIBILIDAD - Reduce movimiento */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

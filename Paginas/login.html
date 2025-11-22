@@ -1,0 +1,376 @@
+<!--Version de HTML-->
+<!DOCTYPE html>
+<!--Inicio de la pagiona web-->
+<html lang="es">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <!--Titutlo de Navegacion-->
+    <title> Registro </title> 
+    <!-- Logo de Navegacion -->
+    <link rel = "icon" href = "../Logo_Principal.ico" type = "image/x-icon">
+    <!-- Enlaces a hojas de estilo -->
+    <link rel = "stylesheet" href = "../CSS/login.css">
+    <script src = "https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<!--Contenido de la Pagina-->
+<body>
+    <!--Menu de navegacion-->
+    <header>
+        <!--Contenido-->
+        <div class = "menu_navegacion">
+            <div class = "contenedor">
+                <div class = "logo">
+                    <!--Ruta relativa-->
+                    <a href = "../index.html">
+                        <!--Ruta de imagen // src = ruta // alt = nombre // style = (width = ancho // height = alto)-->
+                        <img src = "../Logo_Principal.png" alt = "G&A" style = "width: 60px; height: auto;">
+                    </a>
+                </div>
+
+                <nav>
+                    <!--Lista no ordenada-->
+                    <ul>
+                        <li><a href = "../index.html"> Inicio </a></li>
+                        <li><a href = "catalogo.html"> Catalogo </a></li>
+                        <li><a href = "oferta.html"> Ofertas </a></li>
+                        <li><a href = "ubicacion.html"> Ubicacion </a></li>
+                        <li><a href = "carrito.html"> Carrito </a></li>
+                        <li><a href = "cuenta.html"> Cuenta </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--Seccion Registro-->
+        <section class="registro">
+            <div class="contenedor">
+                <div class="registro_contenedor">
+                    <!-- AQUÍ ESTÁ EL CAMBIO: Envolver el form con cuenta_nueva -->
+                    <div class="cuenta_nueva">
+                        <h1>Crear Cuenta</h1>
+                        <p>Únete a nuestra comunidad de gamers</p>
+                        
+                        <form class="formulario" action="http://localhost/proyecto/procesar_login.php" method="POST">
+                            <!--Informacion personal-->
+                            <div class="formulario_personal">
+                                <div class="formulario_grupo">
+                                    <label for="nombre_completo"> Nombre Completo * </label>
+                                    <input type="text" id="nombre_completo" name="nombre_completo" v-model="formData.nombre_completo" required placeholder="Nombre">
+                                    <span class="error-message" v-if="errores.nombre_completo">{{ errores.nombre_completo }}</span>
+                                </div>
+
+                                <div class="formulario_grupo">
+                                    <label for="telefono"> Teléfono * </label>
+                                    <input type="tel" id="telefono" name="telefono" v-model="formData.telefono" @input="validarTelefono" required placeholder="Telefono">
+                                    <span class="error-message" v-if="errores.telefono">{{ errores.telefono }}</span>
+                                </div>
+                            </div>
+
+                            <div class="formulario_personal">
+                                <div class="formulario_grupo">
+                                    <label for="fecha_nacimiento"> Fecha de Nacimiento * </label>
+                                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" v-model="formData.fecha_nacimiento" @change="validarEdad" required>
+                                    <span class="error-message" v-if="errores.fecha_nacimiento">{{ errores.fecha_nacimiento }}</span>
+                                </div>
+
+                                <div class="formulario_grupo">
+                                    <label for="genero"> Género </label>
+                                    <select id="genero" name="genero" v-model="formData.genero">
+                                        <option value=""> Seleccionar </option>
+                                        <option value="Hombre"> Hombre </option>
+                                        <option value="Mujer"> Mujer </option>
+                                        <option value="Otro"> Otro </option>
+                                        <option value="Prefiero no decir"> Prefiero no decir </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!--Informacion de cuenta-->
+                            <div class="formulario_grupo">
+                                <label for="email"> Correo Electrónico * </label>
+                                <input type="email" id="email" name="email" v-model="formData.email" @input="validarEmail" required placeholder="tu@email.com">
+                                <span class="error-message" v-if="errores.email">{{ errores.email }}</span>
+                            </div>
+
+                            <div class="formulario_personal">
+                                <div class="formulario_grupo">
+                                    <label for="password"> Contraseña * </label>
+                                    <input type="password" id="password" name="password" v-model="formData.password" @input="validarPassword" required placeholder="Crea una contraseña">
+                                    <span class="error-message" v-if="errores.password">{{ errores.password }}</span>
+                                </div>
+
+                                <div class="formulario_grupo">
+                                    <label for="confirmar_password"> Confirmar Contraseña * </label>
+                                    <input type="password" id="confirmar_password" name="confirmar_password" v-model="formData.confirmar_password" @input="validarConfirmacionPassword" required placeholder="Confirmar contraseña">
+                                    <span class="error-message" v-if="errores.confirmar_password">{{ errores.confirmar_password }}</span>
+                                </div>
+                            </div>
+
+                            <!-- Términos y Opciones -->
+                            <div class="formulario_opciones">
+                                <!-- Suscripción -->
+                                <label class="contenedor_check">
+                                    <input type="checkbox" id="suscribirse" v-model="formData.suscribirse" checked>
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox_texto"> Recibir ofertas y novedades por correo </span>
+                                </label>
+                                
+                                <!-- Aceptación de términos -->
+                                <label class="formulario_terminos">
+                                    <input type="checkbox" id="terminos" v-model="formData.terminos" required>
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox_texto"> Acepto los <a href="terminos.html" class="link"> términos y condiciones </a> </span>
+                                </label>
+                                <span class="error-message" v-if="errores.terminos">{{ errores.terminos }}</span>
+                            </div>
+                            
+                            <!-- Botón principal de registro -->
+                            <button type="submit" class="boton_crear" :disabled="!formularioValido"> Crear Cuenta </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Beneficios de registrarse -->
+                    <div class="beneficios">
+                        <h2> Ventajas de Registrarte </h2>
+                        <ul>
+                            <li> 🎮 Ofertas exclusivas para miembros </li>
+                            <li> 📦 Historial completo de compras </li>
+                            <li> 🎯 Recomendaciones personalizadas </li>
+                            <li> ⭐ Acceso a preventas y lanzamientos </li>
+                            <li> 🛡️ Soporte prioritario 24/7 </li>
+                            <li> 🏆 Puntos de recompensa por compras </li>
+                            <li> 👥 Comunidad de gamers </li>
+                            <li> 💬 Foros y discusiones exclusivas </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--Pie de pagina-->
+    <footer>
+        <div class = "contenedor">
+            <div class = "espacio_footer">
+                <!--General-->
+                <div class = "seccion_footer">
+                    <h3>G&A</h3>
+                    <p> Tu plataforma de videojuegos de confianza </p>
+                </div>
+
+                <!--Enlaces rapidos-->
+                <div class = "seccion_footer">
+                    <h4> Descurbir </h4>
+                    <ul>
+                        <li><a href = "../index.html"> Inicio </a></li>
+                        <li><a href = "./catalogo.html"> Catalogo </a></li>
+                        <li><a href = "./oferta.html"> Ofertas </a></li>
+                        <li><a href = "./ubicacion.html"> Ubicación </a></li>
+                        <li><a href = "./carrito.html"> Carrito </a></li>
+                    </ul>
+                </div>
+
+                <!--Soporte-->
+                <div class = "seccion_footer">
+                    <h4> Soporte </h4>
+                    <ul>
+                        <li><a href = "./soporte.html"> Soporte </a></li>    
+                        <li><a href = "./cuenta.html"> Cuenta </a></li>
+                    </ul>
+                </div> 
+
+                <!--Legal-->
+                <div class = "seccion_footer">
+                    <h4> Valores </h4>
+                    <ul>
+                        <li><a href = "./terminos.html"> Términos y condiciones </a></li>
+                        <li><a href = "./privacidad.html"> Política de privacidad </a></li>
+                    </ul>
+                </div> 
+
+                <!--Redes sociales-->
+                <div class = "seccion_footer">
+                    <h4> Siguenos </h4>
+                    <div class = "link_social">
+                        <ul>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/facebook.jpg" alt = "Facebook" > </a> </li>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/x.jpg" alt = "X"> </a> </li>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/instagram.jpg" alt = "Instagram"> </a> </li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+            
+            <!-- Derechos reservados -->
+            <div class = "derechos">
+                <p> &copy; 2025 G&A. Todos los derechos reservados </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    formData: {
+                        nombre_completo: '',
+                        telefono: '',
+                        fecha_nacimiento: '',
+                        genero: '',
+                        email: '',
+                        password: '',
+                        confirmar_password: '',
+                        suscribirse: true,
+                        terminos: false
+                    },
+                    errores: {
+                        nombre_completo: '',
+                        telefono: '',
+                        fecha_nacimiento: '',
+                        email: '',
+                        password: '',
+                        confirmar_password: '',
+                        terminos: ''
+                    }
+                }
+            },
+            computed: {
+                formularioValido() {
+                    return Object.values(this.errores).every(error => error === '') && 
+                        this.formData.terminos &&
+                        Object.values(this.formData).every(field => {
+                            if (field === this.formData.genero || field === this.formData.suscribirse) return true;
+                            return field !== '';
+                        });
+                }
+            },
+            methods: {
+                validarTelefono() {
+                    const telefono = this.formData.telefono.replace(/\D/g, '');
+                    this.formData.telefono = telefono;
+                    
+                    if (telefono.length !== 10) {
+                        this.errores.telefono = 'El teléfono debe tener exactamente 10 dígitos';
+                    } else {
+                        this.errores.telefono = '';
+                    }
+                },
+                
+                validarEdad() {
+                    if (!this.formData.fecha_nacimiento) {
+                        this.errores.fecha_nacimiento = '';
+                        return;
+                    }
+                    
+                    const fechaNacimiento = new Date(this.formData.fecha_nacimiento);
+                    const hoy = new Date();
+                    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+                    const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+                    
+                    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+                        edad--;
+                    }
+                    
+                    if (edad < 18) {
+                        this.errores.fecha_nacimiento = 'Debes tener al menos 18 años para registrarte';
+                    } else {
+                        this.errores.fecha_nacimiento = '';
+                    }
+                },
+                
+                validarEmail() {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(this.formData.email)) {
+                        this.errores.email = 'Por favor ingresa un correo electrónico válido';
+                    } else {
+                        this.errores.email = '';
+                    }
+                },
+                
+                validarPassword() {
+                    const password = this.formData.password;
+                    const tieneMayuscula = /[A-Z]/.test(password);
+                    const tieneNumero = /\d/.test(password);
+                    const tieneSimbolo = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+                    
+                    if (password.length < 8) {
+                        this.errores.password = 'La contraseña debe tener al menos 8 caracteres';
+                    } else if (!tieneMayuscula) {
+                        this.errores.password = 'La contraseña debe incluir al menos una mayúscula';
+                    } else if (!tieneNumero) {
+                        this.errores.password = 'La contraseña debe incluir al menos un número';
+                    } else if (!tieneSimbolo) {
+                        this.errores.password = 'La contraseña debe incluir al menos un símbolo';
+                    } else {
+                        this.errores.password = '';
+                    }
+                    
+                    // Validar también la confirmación si ya tiene valor
+                    if (this.formData.confirmar_password) {
+                        this.validarConfirmacionPassword();
+                    }
+                },
+                
+                validarConfirmacionPassword() {
+                    if (this.formData.password !== this.formData.confirmar_password) {
+                        this.errores.confirmar_password = 'Las contraseñas no coinciden';
+                    } else {
+                        this.errores.confirmar_password = '';
+                    }
+                },
+                
+                validarFormulario() {
+                    // Validar todos los campos antes de enviar
+                    this.validarTelefono();
+                    this.validarEdad();
+                    if (this.formData.email) this.validarEmail();
+                    if (this.formData.password) this.validarPassword();
+                    if (this.formData.confirmar_password) this.validarConfirmacionPassword();
+                    
+                    // Validar términos
+                    if (!this.formData.terminos) {
+                        this.errores.terminos = 'Debes aceptar los términos y condiciones';
+                    } else {
+                        this.errores.terminos = '';
+                    }
+                    
+                    // Validar campos vacíos
+                    if (!this.formData.nombre_completo.trim()) {
+                        this.errores.nombre_completo = 'El nombre completo es obligatorio';
+                    } else {
+                        this.errores.nombre_completo = '';
+                    }
+                    
+                    // Si el formulario es válido, proceder con el envío
+                    if (this.formularioValido) {
+                        alert('Formulario enviado correctamente');
+                        // Aquí puedes agregar la lógica para enviar el formulario
+                        // Por ejemplo: this.enviarFormulario();
+                    }
+                },
+                
+                // Método para obtener clase CSS según validación
+                getFieldClass(fieldName) {
+                    if (this.errores[fieldName]) {
+                        return 'error';
+                    }
+                    if (this.formData[fieldName] && !this.errores[fieldName]) {
+                        return 'valid';
+                    }
+                    return '';
+                }
+            }
+        }).mount('main');
+    </script>
+
+    <!-- Archivo JavaScript -->
+    <script src = "../JavaScript/carrito.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!--Version de HTML-->
+<!DOCTYPE html>
+<!--Inicio de la pagiona web-->
+<html lang="es">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <!--Titutlo de Navegacion-->
+    <title> Ubicacion </title> 
+    <!-- Logo de Navegacion -->
+    <link rel = "icon" href = "../Logo_Principal.ico" type = "image/x-icon">
+    <!-- Enlaces a hojas de estilo -->
+    <link rel = "stylesheet" href = "../CSS/ubicacion.css">
+</head>
+
+<!--Contenido de la Pagina-->
+<body>
+    <!--Menu de navegacion-->
+    <header>
+        <!--Contenido-->
+        <div class = "menu_navegacion">
+            <div class = "contenedor">
+                <div class = "logo">
+                    <!--Ruta relativa-->
+                    <a href = "../index.html">
+                        <!--Ruta de imagen // src = ruta // alt = nombre // style = (width = ancho // height = alto)-->
+                        <img src = "../Logo_Principal.png" alt = "G&A" style = "width: 60px; height: auto;">
+                    </a>
+                </div>
+
+                <nav>
+                    <!--Lista no ordenada-->
+                    <ul>
+                        <li><a href = "../index.html"> Inicio </a></li>
+                        <li><a href = "catalogo.html"> Catalogo </a></li>
+                        <li><a href = "oferta.html"> Ofertas </a></li>
+                        <li><a href = "ubicacion.html"> Ubicacion </a></li>
+                        <li><a href = "carrito.html"> Carrito </a></li>
+                        <li><a href = "cuenta.html"> Cuenta </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--Titulo-->
+        <section class = "titulo">
+            <div class="contenedor">
+                <!--Titulo principal-->
+                <h1> Encuentranos </h1>
+            </div>
+        </section>
+
+        <section class = "informacion">
+            <div class = "contenedor">
+                <h2> ¿Cómo contactarnos? </h2>
+                    <div class="contenedor-fichas">
+                    <div class = "ficha_informacion">
+                        <div class = "informacion_icono"> 📧 </div>
+                        <h3> Email </h3>
+                        <p> G&AStudios@gmail.com </p>
+                        <span> Respuesta en 24 horas </span>
+                    </div>
+
+                    <div class = "ficha_informacion">
+                        <div class = "informacion_icono"> 📞 </div>
+                        <h3> Teléfono </h3>
+                        <p> 967-133-06-37 </p>
+                        <span> Lun-Vie 9:00-18:00 </span>
+                    </div>
+
+                    <div class = "ficha_informacion">
+                        <div class = "informacion_icono"> 💬 </div>
+                        <h3> Chat en Vivo </h3>
+                        <p> Soporte instantáneo </p>
+                        <span> Disponible 24/7 </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class = "mapa">
+            <div class = "contenedor">
+                <iframe 
+                    id="map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3820.3191297951466!2d-93.16194322572699!3d16.760790984023437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd98cdd9a8c75%3A0xbba0ef33c7665ea4!2sCasa%20de%20gopar%20Toledo!5e0!3m2!1ses-419!2smx!4v1759715205228!5m2!1ses-419!2smx"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <!--Pie de pagina-->
+    <footer>
+        <div class = "contenedor">
+            <div class = "espacio_footer">
+                <!--General-->
+                <div class = "seccion_footer">
+                    <h3>G&A</h3>
+                    <p> Tu plataforma de videojuegos de confianza </p>
+                </div>
+
+                <!--Enlaces rapidos-->
+                <div class = "seccion_footer">
+                    <h4> Descurbir </h4>
+                    <ul>
+                        <li><a href = "../index.html"> Inicio </a></li>
+                        <li><a href = "./catalogo.html"> Catalogo </a></li>
+                        <li><a href = "./oferta.html"> Ofertas </a></li>
+                        <li><a href = "./ubicacion.html"> Ubicación </a></li>
+                        <li><a href = "./carrito.html"> Carrito </a></li>
+                    </ul>
+                </div>
+
+                <!--Soporte-->
+                <div class = "seccion_footer">
+                    <h4> Soporte </h4>
+                    <ul>
+                        <li><a href = "./soporte.html"> Soporte </a></li>    
+                        <li><a href = "./cuenta.html"> Cuenta </a></li>
+                    </ul>
+                </div> 
+
+                <!--Legal-->
+                <div class = "seccion_footer">
+                    <h4> Valores </h4>
+                    <ul>
+                        <li><a href = "./terminos.html"> Términos y condiciones </a></li>
+                        <li><a href = "./privacidad.html"> Política de privacidad </a></li>
+                    </ul>
+                </div> 
+
+                <!--Redes sociales-->
+                <div class = "seccion_footer">
+                    <h4> Siguenos </h4>
+                    <div class = "link_social">
+                        <ul>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/facebook.jpg" alt = "Facebook" > </a> </li>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/x.jpg" alt = "X"> </a> </li>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/instagram.jpg" alt = "Instagram"> </a> </li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+            
+            <!-- Derechos reservados -->
+            <div class = "derechos">
+                <p> &copy; 2025 G&A. Todos los derechos reservados </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Archivo JavaScript -->
+    <script src = "../JavaScript/carrito.js"></script>
+    
+</body>
+</html>

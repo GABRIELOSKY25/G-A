@@ -1,0 +1,1066 @@
+/* Reiniciar estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    /* Caligrafia */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, Tahoma, Geneva, Verdana, sans-serif; 
+    /* Interlineado */
+    line-height: 1.6;
+    color: #333;
+    /* Color fondo */
+    background-color: #050524;
+    /* Control de desbordamiento */
+    overflow-x: hidden;
+}
+
+/* Menu de navegacion */
+header {
+    /* Color fondo */
+    background-color: rgba(0, 0, 0, 0.021);
+    /* Desenfoque */
+    backdrop-filter: blur(10px);
+    /* Posicicion de pagina */
+    position: fixed;
+    /* Area de ancho */
+    width: 100%;
+    /* Posicion borde superior */
+    top: 0;
+    /* Posicion eje Z */
+    z-index: 1000;
+}
+
+.menu_navegacion {
+    /* Area de ancho */
+    width: 100%;
+}
+
+.menu_navegacion .contenedor {
+    /* Contenedor flexible */
+    display: flex;
+    /* Espaciado igual entre elementos */
+    justify-content: space-between;
+    /* Alinear elementos */
+    align-items: center;
+    /* Espacio interno */
+    padding: 1rem 2rem;
+    /* Ancho maximo */
+    max-width: 1400px;
+    /* Margen */
+    margin: 0 auto;
+}
+
+/* Ajustes de logo */
+.logo img {
+    /* Animacion */
+    transition: transform 0.5s ease;
+    /* Esquinas redondeadas */
+    border-radius: 8px;
+}
+
+.logo img:hover {
+    /* Aumentar tamaño */
+    transform: scale(1.2);
+}
+
+/* Ajustes de barra de navegacion */
+nav ul {
+    /* Contenedor flexible */
+    display: flex;
+    /* Quitar marcadores de lista */
+    list-style: none;
+    /* Espacio entre elementos */
+    gap: 2rem;
+}
+
+/* Ajustes de barra de navegacion */
+nav a {
+    /* Quitar subrallado de vinculo */
+    text-decoration: none;
+    color: #ffffff;
+    /* Grosor de letra navegacion*/
+    font-weight: 400;
+    /* Espacio interno */
+    padding: 0.5rem 1rem;
+    /* Esquinas redondeadas */
+    border-radius: 5px;
+    /* Transicion */
+    transition: all 0.3s ease;
+    /* Posicionamiento */
+    position: relative;
+}
+
+/* Ajustes de lista de navegacion */
+nav a:hover {
+    /* Color de letra */
+    color: #00d9ff;
+    /* Color de fondo */
+    background: rgba(255, 255, 255, 0.183);
+    transform: translateY(-2px);
+}
+
+/* Ajusta sobreado */
+nav a::after {
+    /* Contenido */
+    content: '';
+    /* Posicion */
+    position: absolute;
+    /* Sombreado de boton */
+    bottom: 0;
+    /* Posicion centrado */
+    left: 50%;
+    /* Area de ancho */
+    width: 0;
+    /* Grosor de la barra */
+    height: 2px;
+    /* Esquinas redondeadas */
+    border-radius: 50px;
+    background: #ffffff;
+    /* Centrar barra */
+    transition: all 0.5s ease;
+    /* Centrar barra */
+    transform: translateX(-50%);
+}
+
+/* Ancho de la barra */
+nav a:hover::after {
+    width: 75%;
+}
+
+/* Sección Registro */
+.registro {
+    background: rgba(7, 3, 30, 0.557);
+    color: white;
+    padding: 140px 0 100px;
+    min-height: 100vh;
+}
+
+.registro_contenedor {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    align-items: start;
+}
+
+/* Contenedor de formulario */
+.cuenta_nueva {
+    background: rgba(94, 81, 88, 0.329);
+    padding: 50px 40px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cuenta_nueva:hover {
+    border-color: #00d9ff;
+    box-shadow: 0 1px 50px rgba(255, 255, 255, 0.358);
+}
+
+.cuenta_nueva h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-align: center;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cuenta_nueva > p {
+    text-align: center;
+    color: #c4c4c4;
+    margin-bottom: 40px;
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+/* Formulario */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.formulario_personal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.formulario_grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.formulario_grupo label {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.formulario_grupo input,
+.formulario_grupo select {
+    padding: 16px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.formulario_grupo input:focus,
+.formulario_grupo select:focus {
+    outline: none;
+    border-color: #00d9ff;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+}
+
+/* Opciones del select */
+.formulario_grupo option {
+    background: #1a1a2e;
+    color: #ffffff;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.formulario_grupo input::placeholder {
+    color: #a0a0a0;
+}
+
+.password_hint {
+    color: #00d9ff;
+    font-size: 12px;
+    margin-top: 8px;
+    opacity: 0.7;
+}
+
+/* Opciones y términos */
+.formulario_opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0 35px;
+}
+
+.contenedor_check,
+.formulario_terminos {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    color: #c4c4c4;
+    font-size: 14px;
+}
+
+.contenedor_check input,
+.formulario_terminos input {
+    width: 18px;
+    height: 18px;
+    accent-color: #00d9ff;
+    margin-top: 2px;
+}
+
+.checkbox_texto {
+    flex: 1;
+    line-height: 1.4;
+}
+
+.link {
+    color: #00d9ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.link:hover {
+    color: #0099cc;
+}
+
+/* Botón crear cuenta */
+.boton_crear {
+    background: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%);
+    color: #050524;
+    border: none;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.boton_crear:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 217, 255, 0.4);
+    background: linear-gradient(135deg, #00ffea 0%, #00d9ff 100%);
+}
+
+/* Beneficios - Columna separada */
+.beneficios {
+    background: rgba(94, 81, 88, 0.329);
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    height: fit-content;
+    position: sticky;
+    top: 120px;
+}
+
+.beneficios:hover {
+    border-color: #00d9ff;
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.3);
+}
+
+.beneficios h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-align: center;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.beneficios ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.beneficios li {
+    color: #c4c4c4;
+    font-size: 15px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-weight: 500;
+}
+
+.beneficios li:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateX(5px);
+    border-color: rgba(0, 217, 255, 0.2);
+    color: white;
+}
+
+/* Texto debajo del botón (iniciar sesión) */
+.texto_secundario {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #c4c4c4;
+}
+
+.texto_secundario .link {
+    font-weight: 600;
+}
+
+
+/* ===== ESTILOS PARA VALIDACIÓN VUE.JS ===== */
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: block;
+    font-weight: 500;
+    padding-left: 5px;
+    animation: fadeIn 0.3s ease;
+}
+
+.boton_crear:disabled {
+    background: linear-gradient(135deg, #666 0%, #888 100%);
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.boton_crear:disabled:hover {
+    background: linear-gradient(135deg, #666 0%, #888 100%);
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.formulario_grupo input.error,
+.formulario_grupo select.error {
+    border-color: #ff6b6b !important;
+    background: rgba(255, 107, 107, 0.05) !important;
+}
+
+.formulario_grupo input.valid,
+.formulario_grupo select.valid {
+    border-color: #51cf66 !important;
+    background: rgba(81, 207, 102, 0.05) !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mejora visual para campos con error */
+.formulario_grupo {
+    position: relative;
+}
+
+/* Efecto de shake para campos inválidos */
+.formulario_grupo input:invalid:focus,
+.formulario_grupo select:invalid:focus {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Estilo para términos y condiciones con error */
+.formulario_terminos.error {
+    color: #ff6b6b;
+}
+
+.formulario_terminos.error .checkbox_texto {
+    color: #ff6b6b;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: rgba(7, 3, 30, 0.557);  
+    color: #e2e8f0;
+    padding: 3rem 1rem 1rem;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Contenedor principal */
+.contenedor {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Distribución de columnas */
+.espacio_footer {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 2rem; 
+    margin-bottom: 1rem;
+    justify-content: space-between; /* Cambiado a space-between */
+}
+
+.seccion_footer {
+    flex: 0 1 auto; /* Cambiado de flex: 1 */
+    min-width: 130px;
+    max-width: 1000px;
+    text-align: center; /* Centrar texto dentro de cada sección */
+}
+
+/* Secciones */
+.seccion_footer h3,
+.seccion_footer h4 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Texto descriptivo */
+.seccion_footer p {
+    color: #a3aab4;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Listas */
+.seccion_footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.seccion_footer ul li {
+    margin-bottom: 0.6rem;
+}
+
+/* Enlaces */
+.seccion_footer a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.seccion_footer a:hover {
+    color: #00d9ff;
+    transform: translateX(4px);
+}
+
+/* Redes sociales */
+.link_social ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;  
+}
+
+.link_social ul li {
+    margin-bottom: 0.8rem; 
+}
+
+.link_social ul li img {
+    width: 32px; /* Tamaño de las imágenes */
+    height: 32px;
+    transition: transform 0.3s ease;
+}
+
+.link_social ul li img:hover {
+    transform: scale(1.3); /* Efecto hover */
+}
+
+/* Derechos reservados */
+.derechos {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    color: #94a3b8;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN - PÁGINA REGISTRO
+   ===================================================== */
+
+/* TABLET (768px - 1024px) */
+@media (max-width: 1024px) {
+    /* Navegación */
+    .menu_navegacion .contenedor {
+        padding: 1rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* Grid principal */
+    .registro_contenedor {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        padding: 0 1rem;
+    }
+
+    /* Formulario */
+    .cuenta_nueva {
+        padding: 40px 30px;
+    }
+
+    .cuenta_nueva h1 {
+        font-size: 35px;
+    }
+
+    .cuenta_nueva > p {
+        font-size: 17px;
+        margin-bottom: 30px;
+    }
+
+    .formulario_personal {
+        gap: 15px;
+    }
+
+    .formulario_grupo {
+        margin-bottom: 20px;
+    }
+
+    .formulario_grupo label {
+        font-size: 14px;
+    }
+
+    .formulario_grupo input,
+    .formulario_grupo select {
+        padding: 14px 18px;
+        font-size: 15px;
+    }
+
+    /* Beneficios */
+    .beneficios {
+        padding: 30px;
+        top: 100px;
+    }
+
+    .beneficios h2 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .beneficios li {
+        font-size: 14px;
+        padding: 12px 16px;
+    }
+}
+
+/* MÓVIL GRANDE (576px - 768px) */
+@media (max-width: 768px) {
+    /* Header y navegación */
+    .menu_navegacion .contenedor {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.8rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    /* Sección registro */
+    .registro {
+        padding: 120px 0 60px;
+    }
+
+    /* Grid principal - una columna */
+    .registro_contenedor {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 0 1rem;
+    }
+
+    /* Formulario */
+    .cuenta_nueva {
+        padding: 35px 25px;
+    }
+
+    .cuenta_nueva h1 {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+
+    .cuenta_nueva > p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    /* Grid de campos en dos columnas */
+    .formulario_personal {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .formulario_grupo {
+        margin-bottom: 18px;
+    }
+
+    .formulario_grupo label {
+        font-size: 13px;
+    }
+
+    .formulario_grupo input,
+    .formulario_grupo select {
+        padding: 13px 16px;
+        font-size: 14px;
+    }
+
+    .password_hint {
+        font-size: 11px;
+    }
+
+    /* Opciones */
+    .formulario_opciones {
+        gap: 15px;
+        margin: 15px 0 25px;
+    }
+
+    .contenedor_check,
+    .formulario_terminos {
+        font-size: 13px;
+        gap: 10px;
+    }
+
+    .contenedor_check input,
+    .formulario_terminos input {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Botón crear */
+    .boton_crear {
+        padding: 16px;
+        font-size: 15px;
+    }
+
+    /* Registro web */
+    .registro_web {
+        margin: 25px 0;
+        font-size: 13px;
+    }
+
+    .autenticacion_web {
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .boton_social_google,
+    .boton_social_facebook {
+        padding: 14px;
+        font-size: 13px;
+    }
+
+    /* Beneficios */
+    .beneficios {
+        position: static;
+        padding: 30px 25px;
+    }
+
+    .beneficios h2 {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .beneficios ul {
+        gap: 15px;
+    }
+
+    .beneficios li {
+        font-size: 14px;
+        padding: 13px 18px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 2.5rem 1rem 1rem;
+    }
+
+    .espacio_footer {
+        gap: 1.5rem;
+    }
+}
+
+/* MÓVIL PEQUEÑO (hasta 576px) */
+@media (max-width: 576px) {
+    /* Header */
+    .menu_navegacion .contenedor {
+        padding: 0.5rem;
+    }
+
+    nav ul {
+        gap: 0.5rem;
+    }
+
+    nav a {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    /* Sección registro */
+    .registro {
+        padding: 100px 0 40px;
+    }
+
+    /* Grid principal */
+    .registro_contenedor {
+        padding: 0 0.8rem;
+        gap: 2rem;
+    }
+
+    /* Formulario */
+    .cuenta_nueva {
+        padding: 25px 20px;
+    }
+
+    .cuenta_nueva h1 {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .cuenta_nueva > p {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    /* Campos del formulario - UNA COLUMNA */
+    .formulario_personal {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .formulario_grupo {
+        margin-bottom: 15px;
+    }
+
+    .formulario_grupo label {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .formulario_grupo input,
+    .formulario_grupo select {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .password_hint {
+        font-size: 10px;
+        margin-top: 6px;
+    }
+
+    /* Opciones */
+    .formulario_opciones {
+        gap: 12px;
+        margin: 12px 0 20px;
+    }
+
+    .contenedor_check,
+    .formulario_terminos {
+        font-size: 12px;
+        gap: 8px;
+    }
+
+    .contenedor_check input,
+    .formulario_terminos input {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Botón crear */
+    .boton_crear {
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    /* Registro web */
+    .registro_web {
+        margin: 20px 0;
+        font-size: 12px;
+    }
+
+    .registro_web span {
+        padding: 0 15px;
+    }
+
+    /* Botones sociales - UNA COLUMNA */
+    .autenticacion_web {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .boton_social_google,
+    .boton_social_facebook {
+        padding: 13px;
+        font-size: 13px;
+    }
+
+    /* Beneficios */
+    .beneficios {
+        padding: 25px 20px;
+    }
+
+    .beneficios h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .beneficios ul {
+        gap: 12px;
+    }
+
+    .beneficios li {
+        font-size: 13px;
+        padding: 12px 15px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 2rem 0.8rem 1rem;
+    }
+
+    .espacio_footer {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .seccion_footer h3,
+    .seccion_footer h4 {
+        font-size: 1.2rem;
+    }
+}
+
+/* MÓVIL MUY PEQUEÑO (hasta 400px) */
+@media (max-width: 400px) {
+    /* Sección registro */
+    .registro {
+        padding: 90px 0 30px;
+    }
+
+    .registro_contenedor {
+        padding: 0 0.5rem;
+        gap: 1.5rem;
+    }
+
+    /* Formulario */
+    .cuenta_nueva {
+        padding: 20px 15px;
+    }
+
+    .cuenta_nueva h1 {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    .cuenta_nueva > p {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .formulario {
+        gap: 15px;
+    }
+
+    .formulario_grupo {
+        margin-bottom: 12px;
+    }
+
+    .formulario_grupo label {
+        font-size: 11px;
+        margin-bottom: 6px;
+    }
+
+    .formulario_grupo input,
+    .formulario_grupo select {
+        padding: 11px 12px;
+        font-size: 13px;
+        border-radius: 10px;
+    }
+
+    .password_hint {
+        font-size: 9px;
+    }
+
+    /* Opciones */
+    .formulario_opciones {
+        gap: 10px;
+        margin: 10px 0 15px;
+    }
+
+    .contenedor_check,
+    .formulario_terminos {
+        font-size: 11px;
+        gap: 6px;
+    }
+
+    .contenedor_check input,
+    .formulario_terminos input {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Botón crear */
+    .boton_crear {
+        padding: 12px;
+        font-size: 13px;
+        border-radius: 10px;
+    }
+
+    /* Registro web */
+    .registro_web {
+        margin: 15px 0;
+        font-size: 11px;
+    }
+
+    .registro_web span {
+        padding: 0 12px;
+    }
+
+    .autenticacion_web {
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .boton_social_google,
+    .boton_social_facebook {
+        padding: 12px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+
+    /* Beneficios */
+    .beneficios {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    .beneficios h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .beneficios ul {
+        gap: 10px;
+    }
+
+    .beneficios li {
+        font-size: 12px;
+        padding: 10px 12px;
+        border-radius: 8px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 1.5rem 0.5rem 0.8rem;
+    }
+
+    .seccion_footer h3,
+    .seccion_footer h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .seccion_footer ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .derechos {
+        font-size: 0.9rem;
+        padding-top: 1.5rem;
+    }
+}
+
+/* ACCESIBILIDAD - Reduce movimiento */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

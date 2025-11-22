@@ -1,0 +1,316 @@
+<!--Version de HTML-->
+<!DOCTYPE html>
+<!--Inicio de la pagiona web-->
+<html lang="es">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <!--Titutlo de Navegacion-->
+    <title> Soprte </title> 
+    <!-- Logo de Navegacion -->
+    <link rel = "icon" href = "../Logo_Principal.ico" type = "image/x-icon">
+    <!-- Enlaces a hojas de estilo -->
+    <link rel = "stylesheet" href = "../CSS/soporte.css">
+    <script src = "https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<!--Contenido de la Pagina-->
+<body>
+    <!--Menu de navegacion-->
+    <header>
+        <!--Contenido-->
+        <div class = "menu_navegacion">
+            <div class = "contenedor">
+                <div class = "logo">
+                    <!--Ruta relativa-->
+                    <a href = "../index.html">
+                        <!--Ruta de imagen // src = ruta // alt = nombre // style = (width = ancho // height = alto)-->
+                        <img src = "../Logo_Principal.png" alt = "G&A" style = "width: 60px; height: auto;">
+                    </a>
+                </div>
+
+                <nav>
+                    <!--Lista no ordenada-->
+                    <ul>
+                        <li><a href = "../index.html"> Inicio </a></li>
+                        <li><a href = "catalogo.html"> Catalogo </a></li>
+                        <li><a href = "oferta.html"> Ofertas </a></li>
+                        <li><a href = "ubicacion.html"> Ubicacion </a></li>
+                        <li><a href = "carrito.html"> Carrito </a></li>
+                        <li><a href = "cuenta.html"> Cuenta </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+        <main>
+            <!--Titulo-->
+            <section class = "titulo">
+                <div class = "contenedor">
+                    <!--Titulo principal-->
+                    <h1> Contáctanos </h1>
+                    <p> Estamos aquí para ayudarte con cualquier consulta </p>
+                </div>
+            </section>
+
+            <!-- Formulario de contacto -->
+            <section class = "contacto">
+                <div class = "contenedor">
+                    <div class = "registro_contenedor">
+                        <h2> Envíanos un mensaje </h2>
+                        <form class = "contacto_registro" @submit.prevent="validarFormulario">
+                            <div class="formulario">
+                                <div class="formulario_grupo">
+                                    <label for="name">Nombre</label>
+                                    <input type="text" id="name" name="name" v-model="formData.name" 
+                                        @blur="validarNombre" required placeholder="Tu nombre">
+                                    <span class="error-message" v-if="errores.name">{{ errores.name }}</span>
+                                </div>
+                                <div class="formulario_grupo">
+                                    <label for="email">Correo electrónico</label>
+                                    <input type="email" id="email" name="email" v-model="formData.email" 
+                                        @blur="validarEmail" required placeholder="tu@email.com">
+                                    <span class="error-message" v-if="errores.email">{{ errores.email }}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="formulario_grupo">
+                                <label for="subject">Asunto</label>
+                                <select id="subject" name="subject" v-model="formData.subject" 
+                                        @change="validarAsunto" required>
+                                    <option value="">Selecciona un asunto</option>
+                                    <option value="soporte">Soporte técnico</option>
+                                    <option value="ventas">Consultas de ventas</option>
+                                    <option value="reembolso">Solicitud de reembolso</option>
+                                    <option value="cuenta">Problemas con cuenta</option>
+                                    <option value="otros">Otros</option>
+                                </select>
+                                <span class="error-message" v-if="errores.subject">{{ errores.subject }}</span>
+                            </div>
+                            
+                            <div class="formulario_grupo">
+                                <label for="message">Mensaje</label>
+                                <textarea id="message" name="message" rows="6" v-model="formData.message" 
+                                        @blur="validarMensaje" required placeholder="Describe tu consulta en detalle..."></textarea>
+                                <span class="error-message" v-if="errores.message">{{ errores.message }}</span>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary" :disabled="!formularioValido">Enviar mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Preguntas frecuentes -->
+            <section class = "dudas">
+                <div class = "contenedor">
+                    <h2> Preguntas Frecuentes </h2>
+                    <div class = "duda_seccion">
+                        <div class = "duda">
+                            <h3> ¿Cómo activo mi juego? </h3>
+                            <p> Recibirás el código de activación por email inmediatamente después de la compra. Sigue las instrucciones específicas para tu plataforma </p>
+                        </div>
+
+                        <div class = "duda">
+                            <h3> ¿Qué métodos de pago aceptan? </h3>
+                            <p> Aceptamos tarjetas de crédito/débito, PayPal, transferencias bancarias y criptomonedas </p>
+                        </div>
+
+                        <div class = "duda">
+                            <h3> ¿Ofrecen reembolsos? </h3>
+                            <p> Sí, ofrecemos reembolsos dentro de los 14 días posteriores a la compra, siempre que el juego no haya sido activado </p>
+                        </div>
+
+                        <div class = "duda">
+                            <h3> ¿Tienen soporte en español? </h3>
+                            <p> Sí, todo nuestro equipo de soporte habla español y está disponible 24/7 para ayudarte </p>
+                        </div>
+
+                        <div class = "duda">
+                            <h3> ¿Los juegos son region-lock? </h3>
+                            <p> La mayoría de nuestros juegos no tienen restricción regional, pero algunos títulos específicos pueden estar limitados a ciertas zonas </p>
+                        </div>
+
+                        <div class = "duda">
+                            <h3> ¿Qué pasa si el código no funciona? </h3>
+                            <p> Contacta a nuestro soporte inmediatamente. Verificaremos tu compra y te proporcionaremos un código de reemplazo si es necesario </p>
+                        </div>
+
+                        <div class = "duda">
+                            <h3> ¿Los juegos incluyen todos los DLCs? </h3>
+                            <p> Depende de la edición que compres. Revisa la descripción del producto para ver qué contenido incluye cada edición </p>
+                        </div>
+
+                        <div class = "duda">
+                            <h3> ¿Los precios incluyen IVA? </h3>
+                            <p> Sí, todos los precios mostrados incluyen IVA y cualquier otro impuesto aplicable </p>
+                        </div>
+
+                        <div class = "duda">
+                            <h3> ¿Tienen programa de referidos? </h3>
+                            <p> Sí, nuestro programa de referidos te permite ganar créditos por cada amigo que se registre y compre usando tu código </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    <!--Pie de pagina-->
+    <footer>
+        <div class = "contenedor">
+            <div class = "espacio_footer">
+                <!--General-->
+                <div class = "seccion_footer">
+                    <h3>G&A</h3>
+                    <p> Tu plataforma de videojuegos de confianza </p>
+                </div>
+
+                <!--Enlaces rapidos-->
+                <div class = "seccion_footer">
+                    <h4> Descurbir </h4>
+                    <ul>
+                        <li><a href = "../index.html"> Inicio </a></li>
+                        <li><a href = "./catalogo.html"> Catalogo </a></li>
+                        <li><a href = "./oferta.html"> Ofertas </a></li>
+                        <li><a href = "./ubicacion.html"> Ubicación </a></li>
+                        <li><a href = "./carrito.html"> Carrito </a></li>
+                    </ul>
+                </div>
+
+                <!--Soporte-->
+                <div class = "seccion_footer">
+                    <h4> Soporte </h4>
+                    <ul>
+                        <li><a href = "./soporte.html"> Soporte </a></li>    
+                        <li><a href = "./cuenta.html"> Cuenta </a></li>
+                    </ul>
+                </div> 
+
+                <!--Legal-->
+                <div class = "seccion_footer">
+                    <h4> Valores </h4>
+                    <ul>
+                        <li><a href = "./terminos.html"> Términos y condiciones </a></li>
+                        <li><a href = "./privacidad.html"> Política de privacidad </a></li>
+                    </ul>
+                </div> 
+
+                <!--Redes sociales-->
+                <div class = "seccion_footer">
+                    <h4> Siguenos </h4>
+                    <div class = "link_social">
+                        <ul>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/facebook.jpg" alt = "Facebook" > </a> </li>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/x.jpg" alt = "X"> </a> </li>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/instagram.jpg" alt = "Instagram"> </a> </li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+            
+            <!-- Derechos reservados -->
+            <div class = "derechos">
+                <p> &copy; 2025 G&A. Todos los derechos reservados </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    formData: {
+                        name: '',
+                        email: '',
+                        subject: '',
+                        message: ''
+                    },
+                    errores: {
+                        name: '',
+                        email: '',
+                        subject: '',
+                        message: ''
+                    }
+                }
+            },
+            computed: {
+                formularioValido() {
+                    return Object.values(this.errores).every(error => error === '') && 
+                        Object.values(this.formData).every(field => field !== '');
+                }
+            },
+            methods: {
+                validarNombre() {
+                    if (!this.formData.name.trim()) {
+                        this.errores.name = 'El nombre es obligatorio';
+                    } else if (this.formData.name.trim().length < 2) {
+                        this.errores.name = 'El nombre debe tener al menos 2 caracteres';
+                    } else {
+                        this.errores.name = '';
+                    }
+                },
+                
+                validarEmail() {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!this.formData.email) {
+                        this.errores.email = 'El correo electrónico es obligatorio';
+                    } else if (!emailRegex.test(this.formData.email)) {
+                        this.errores.email = 'Por favor ingresa un correo electrónico válido';
+                    } else {
+                        this.errores.email = '';
+                    }
+                },
+                
+                validarAsunto() {
+                    if (!this.formData.subject) {
+                        this.errores.subject = 'Por favor selecciona un asunto';
+                    } else {
+                        this.errores.subject = '';
+                    }
+                },
+                
+                validarMensaje() {
+                    if (!this.formData.message.trim()) {
+                        this.errores.message = 'El mensaje es obligatorio';
+                    } else if (this.formData.message.trim().length < 10) {
+                        this.errores.message = 'El mensaje debe tener al menos 10 caracteres';
+                    } else {
+                        this.errores.message = '';
+                    }
+                },
+                
+                validarFormulario() {
+                    this.validarNombre();
+                    this.validarEmail();
+                    this.validarAsunto();
+                    this.validarMensaje();
+                    
+                    if (this.formularioValido) {
+                        this.enviarFormulario();
+                    }
+                },
+                
+                enviarFormulario() {
+                    console.log('Formulario enviado:', this.formData);
+                    alert('Mensaje enviado correctamente. Te contactaremos pronto.');
+                    
+                    // Limpiar formulario
+                    this.formData = {
+                        name: '',
+                        email: '',
+                        subject: '',
+                        message: ''
+                    };
+                }
+            }
+        }).mount('main');
+    </script>
+
+    <!-- Archivo JavaScript -->
+    <script src = "../JavaScript/carrito.js"></script>
+</body>
+</html>

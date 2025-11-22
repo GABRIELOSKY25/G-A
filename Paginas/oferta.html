@@ -1,0 +1,280 @@
+<!--Version de HTML-->
+<!DOCTYPE html>
+<!--Inicio de la pagiona web-->
+<html lang="es">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <!--Titutlo de Navegacion-->
+    <title> Oferta </title> 
+    <!-- Logo de Navegacion -->
+    <link rel = "icon" href = "../Logo_Principal.ico" type = "image/x-icon">
+    <!-- Enlaces a hojas de estilo -->
+    <link rel = "stylesheet" href = "../CSS/oferta.css">
+</head>
+
+<!--Contenido de la Pagina-->
+<body>
+    <!--Menu de navegacion-->
+    <header>
+        <!--Contenido-->
+        <div class = "menu_navegacion">
+            <div class = "contenedor">
+                <div class = "logo">
+                    <!--Ruta relativa-->
+                    <a href = "../index.html">
+                        <!--Ruta de imagen // src = ruta // alt = nombre // style = (width = ancho // height = alto)-->
+                        <img src = "../Logo_Principal.png" alt = "G&A" style = "width: 60px; height: auto;">
+                    </a>
+                </div>
+
+                <nav>
+                    <!--Lista no ordenada-->
+                    <ul>
+                        <li><a href = "../index.html"> Inicio </a></li>
+                        <li><a href = "catalogo.html"> Catalogo </a></li>
+                        <li><a href = "oferta.html"> Ofertas </a></li>
+                        <li><a href = "ubicacion.html"> Ubicacion </a></li>
+                        <li><a href = "carrito.html"> Carrito </a></li>
+                        <li><a href = "cuenta.html"> Cuenta </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--Titulo-->
+        <section class = "titulo">
+            <div class="contenedor">
+                <!--Titulo principal-->
+                <h1> Ofertas exclusivas </h1>
+            </div>
+        </section>
+
+        <!--Ofertas destacadas-->
+        <section class = "ofertas_destacadas">
+            <div class = "contenedor">
+                <!--Subtitulo 1-->
+                <h2> Destacadas </h2>
+                <div class = "cuadricula_juegos">
+                    <article class = "targeta_jugo">
+                        <div class = "descuento"> -40% </div>
+                        <img src = "../Imagenes/Juegos/Battlefront.jpg" alt = "Portada de Battlefrom 2">
+                        <!--Subtitlo 2-->
+                        <h3> Battlefrom 2 </h3>
+                        <p> Una nueva historia nos espera </p>
+                        <div>
+                            <span class = "precio_normal"> $1,399 </span>
+                            <span class = "precio_descuento"> $840</span>
+                        </div>
+                        <button class = "boton_compra"> Agregar al carrito </button>
+                    </article>
+
+                    <article class = "targeta_jugo">
+                        <div class = "descuento"> -50% </div>
+                        <img src = "../Imagenes/Juegos/Red2.jpg" alt = "Portada de juego Red Dead Redemption 2">
+                        <!--Subtitlo 2-->
+                        <h3> Red Dead Redemption 2 </h3>
+                        <p> Sigue las aventuras de Arthur Morgan </p>
+                        <div>
+                            <span class = "precio_normal"> $1,599 </span>
+                            <span class = "precio_descuento"> $799</span>
+                        </div>
+                        <button class = "boton_compra"> Agregar al carrito </button>
+                    </article>
+
+                    <article class = "targeta_jugo">
+                        <div class = "descuento"> -20% </div>
+                        <img src = "../Imagenes/Juegos/fifa23.jpg" alt = "Portada de juego Fifa 23">
+                        <!--Subtitlo 2-->
+                        <h3> FIFA 23 </h3>
+                        <p> Ten la experiencia mas realista de un partido </p>
+                        <div>
+                            <span class = "precio_normal"> $599 </span>
+                            <span class = "precio_descuento"> $479 </span>
+                        </div>
+                        <button class = "boton_compra"> Agregar al carrito </button>
+                    </article>
+
+                    <article class = "targeta_jugo">
+                        <div class = "descuento"> -45% </div>
+                        <img src = "../Imagenes/Juegos/Gears4.jpg" alt = "Portada de juego Gears of War 4">
+                        <!--Subtitlo 2-->
+                        <h3> Gears of War 4 </h3>
+                        <p> Una nueva ameza surge de nuevo </p>
+                        <div>
+                            <span class = "precio_normal"> $750 </span>
+                            <span class = "precio_descuento"> $418 </span>
+                        </div>
+                        <button class = "boton_compra"> Agregar al carrito </button>
+                    </article>
+
+                    <article class = "targeta_jugo">
+                        <div class = "descuento"> -10% </div>
+                        <img src = "../Imagenes/Juegos/TheLastOfUs.jpg" alt = "Portada de juego The Last of Us">
+                        <!--Subtitlo 2-->
+                        <h3> The Last of Us </h3>
+                        <p> La ventura mas epica a lado de Joel y Ellie </p>
+                        <div>
+                            <span class = "precio_normal"> $1299 </span>
+                            <span class = "precio_descuento"> $1169 </span>
+                        </div>
+                        <button class = "boton_compra"> Agregar al carrito </button>
+                    </article>
+
+                    <article class = "targeta_jugo">
+                        <div class = "descuento"> -55% </div>
+                        <img src = "../Imagenes/Juegos/MetroExodus.jpg" alt = "Portada de juego Metro Exodus">
+                        <!--Subtitlo 2-->
+                        <h3> Metro Exodus </h3>
+                        <p> Un apocalipsis al punto del quiebre </p>
+                        <div>
+                            <span class = "precio_normal"> $950 </span>
+                            <span class = "precio_descuento"> $428 </span>
+                        </div>
+                        <button class = "boton_compra"> Agregar al carrito </button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabla de ofertas semanales-->
+        <section class = "ofertas_semanales">
+            <div class = "contenedor">
+                <h2> Oferas de la semana </h2>
+                <div class = "tabla">
+                    <!-- Apartado de la tabla-->
+                    <table>
+                        <thead>
+                            <try>
+                                <!--Encabezados de la tabla-->
+                                <th> Juego </th>
+                                <th> Precio Original </th>
+                                <th> Descuento </th>
+                                <th> Precio Final </th>
+                                <th> Compra </th>
+                            </try>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="infomacion_tabla">
+                                        <img src = "../Imagenes/Juegos/ModernWarfare.jpg" alt = "Portada de juego Call of Duty: Modern Warfare">
+                                        <span> Call of Duty: Modern Warfare </span>
+                                    </div>
+                                </td>
+                                <td> $1199 </td>
+                                <td> -25% </td>
+                                <td> $899 </td>
+                                <td> <button class = "boton_tabla"> Añadir al carrito </button> </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="infomacion_tabla">
+                                        <img src = "../Imagenes/Juegos/Minecraft.jpg" alt = "Portada de juego Minecraft">
+                                        <span> Minecraft </span>
+                                    </div>
+                                </td>
+                                <td> $799 </td>
+                                <td> -15% </td>
+                                <td> $679 </td>
+                                <td> <button class = "boton_tabla"> Añadir al carrito </button> </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="infomacion_tabla">
+                                        <img src = "../Imagenes/Juegos/RainbowSix.jpg" alt = "Portada de juego Rainbow Six Siege">
+                                        <span> Rainbow Six Siege </span>
+                                    </div>
+                                </td>
+                                <td> $800 </td>
+                                <td> -50% </td>
+                                <td> $400 </td>
+                                <td> <button class = "boton_tabla"> Añadir al carrito </button> </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="infomacion_tabla">
+                                        <img src = "../Imagenes/Juegos/SpidermanMorales.jpg" alt = "Portada de juego Spiderman-Mais Morales">
+                                        <span> Spiderman-Mais Morales </span>
+                                    </div>
+                                </td>
+                                <td> $1099 </td>
+                                <td> -5% </td>
+                                <td> $1044 </td>
+                                <td> <button class = "boton_tabla"> Añadir al carrito </button> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   <!--Pie de pagina-->
+    <footer>
+        <div class = "contenedor">
+            <div class = "espacio_footer">
+                <!--General-->
+                <div class = "seccion_footer">
+                    <h3>G&A</h3>
+                    <p> Tu plataforma de videojuegos de confianza </p>
+                </div>
+
+                <!--Enlaces rapidos-->
+                <div class = "seccion_footer">
+                    <h4> Descurbir </h4>
+                    <ul>
+                        <li><a href = "../index.html"> Inicio </a></li>
+                        <li><a href = "./catalogo.html"> Catalogo </a></li>
+                        <li><a href = "./oferta.html"> Ofertas </a></li>
+                        <li><a href = "./ubicacion.html"> Ubicación </a></li>
+                        <li><a href = "./cuenta.html"> Carrito </a></li>
+                    </ul>
+                </div>
+
+                <!--Soporte-->
+                <div class = "seccion_footer">
+                    <h4> Soporte </h4>
+                    <ul>
+                        <li><a href = "./soporte.html"> Soporte </a></li>    
+                        <li><a href = "./login.html"> Cuenta </a></li>
+                    </ul>
+                </div> 
+
+                <!--Legal-->
+                <div class = "seccion_footer">
+                    <h4> Valores </h4>
+                    <ul>
+                        <li><a href = "./terminos.html"> Términos y condiciones </a></li>
+                        <li><a href = "./privacidad.html"> Política de privacidad </a></li>
+                    </ul>
+                </div> 
+
+                <!--Redes sociales-->
+                <div class = "seccion_footer">
+                    <h4> Siguenos </h4>
+                    <div class = "link_social">
+                        <ul>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/facebook.jpg" alt = "Facebook" > </a> </li>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/x.jpg" alt = "X"> </a> </li>
+                            <li> <a href = "" target = "_blank"> <img src = "../Imagenes/Redes Sociales/instagram.jpg" alt = "Instagram"> </a> </li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+            
+            <!-- Derechos reservados -->
+            <div class = "derechos">
+                <p> &copy; 2025 G&A. Todos los derechos reservados </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Archivo JavaScript -->
+    <script src="../JavaScript/carrito.js"></script>
+
+</body>
+</html>

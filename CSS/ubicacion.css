@@ -1,0 +1,625 @@
+/* Reiniciar estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    /* Caligrafia */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, Tahoma, Geneva, Verdana, sans-serif; 
+    /* Interlineado */
+    line-height: 1.6;
+    color: #333;
+    /* Color fondo */
+    background-color: #050524;
+    /* Control de desbordamiento */
+    overflow-x: hidden;
+}
+
+/* Menu de navegacion */
+header {
+    /* Color fondo */
+    background-color: rgba(0, 0, 0, 0.021);
+    /* Desenfoque */
+    backdrop-filter: blur(10px);
+    /* Posicicion de pagina */
+    position: fixed;
+    /* Area de ancho */
+    width: 100%;
+    /* Posicion borde superior */
+    top: 0;
+    /* Posicion eje Z */
+    z-index: 1000;
+}
+
+.menu_navegacion {
+    /* Area de ancho */
+    width: 100%;
+}
+
+.menu_navegacion .contenedor {
+    /* Contenedor flexible */
+    display: flex;
+    /* Espaciado igual entre elementos */
+    justify-content: space-between;
+    /* Alinear elementos */
+    align-items: center;
+    /* Espacio interno */
+    padding: 1rem 2rem;
+    /* Ancho maximo */
+    max-width: 1400px;
+    /* Margen */
+    margin: 0 auto;
+}
+
+/* Ajustes de logo */
+.logo img {
+    /* Animacion */
+    transition: transform 0.5s ease;
+    /* Esquinas redondeadas */
+    border-radius: 8px;
+}
+
+.logo img:hover {
+    /* Aumentar tamaño */
+    transform: scale(1.2);
+}
+
+/* Ajustes de barra de navegacion */
+nav ul {
+    /* Contenedor flexible */
+    display: flex;
+    /* Quitar marcadores de lista */
+    list-style: none;
+    /* Espacio entre elementos */
+    gap: 2rem;
+}
+
+/* Ajustes de barra de navegacion */
+nav a {
+    /* Quitar subrallado de vinculo */
+    text-decoration: none;
+    color: #ffffff;
+    /* Grosor de letra navegacion*/
+    font-weight: 400;
+    /* Espacio interno */
+    padding: 0.5rem 1rem;
+    /* Esquinas redondeadas */
+    border-radius: 5px;
+    /* Transicion */
+    transition: all 0.3s ease;
+    /* Posicionamiento */
+    position: relative;
+}
+
+/* Ajustes de lista de navegacion */
+nav a:hover {
+    /* Color de letra */
+    color: #00d9ff;
+    /* Color de fondo */
+    background: rgba(255, 255, 255, 0.183);
+    transform: translateY(-2px);
+}
+
+/* Ajusta sobreado */
+nav a::after {
+    /* Contenido */
+    content: '';
+    /* Posicion */
+    position: absolute;
+    /* Sombreado de boton */
+    bottom: 0;
+    /* Posicion centrado */
+    left: 50%;
+    /* Area de ancho */
+    width: 0;
+    /* Grosor de la barra */
+    height: 2px;
+    /* Esquinas redondeadas */
+    border-radius: 50px;
+    background: #ffffff;
+    /* Centrar barra */
+    transition: all 0.5s ease;
+    /* Centrar barra */
+    transform: translateX(-50%);
+}
+
+/* Ancho de la barra */
+nav a:hover::after {
+    width: 75%;
+}
+
+/* Configuracion main */
+main {
+    /* Bajar el contenido de main */
+    margin-top: 0px;
+}
+
+/* Sección título */
+.titulo {
+    background: linear-gradient(150deg, #a735ffd3, #f7f71ed6);
+    padding: 150px 0 150px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.titulo h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.425);
+}
+
+/* Sección información de contacto */
+.informacion {
+    background: rgba(7, 3, 30, 0.557);
+    color: white;
+    padding: 5rem 0;
+}
+
+.informacion .contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Título de la sección */
+.informacion h2 {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+    color: #ffffff;
+}
+
+/* Grid de fichas - contenedor separado */
+.contenedor-fichas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 4rem;
+}
+
+/* Fichas de información */
+.ficha_informacion {
+    background: rgba(94, 81, 88, 0.329);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.ficha_informacion:hover {
+    transform: translateY(-10px);
+    border-color: #00d9ff;
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.3);
+}
+
+/* Icono */
+.informacion_icono {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Título */
+.ficha_informacion h3 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Texto principal */
+.ficha_informacion p {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* Texto secundario */
+.ficha_informacion span {
+    color: #00d9ff;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Sección mapa */
+.mapa {
+    background: rgba(7, 3, 30, 0.557);
+    padding: 5rem 0;
+}
+
+.mapa .contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Estilos del iframe del mapa */
+.mapa iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.mapa iframe:hover {
+    box-shadow: 0 25px 50px rgba(0, 217, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+/* ===== Footer ===== */
+footer {
+    background: rgba(7, 3, 30, 0.557);  
+    color: #e2e8f0;
+    padding: 3rem 1rem 1rem;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Contenedor principal */
+.contenedor {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Distribución de columnas */
+.espacio_footer {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 2rem; 
+    margin-bottom: 1rem;
+    justify-content: space-between; /* Cambiado a space-between */
+}
+
+.seccion_footer {
+    flex: 0 1 auto; /* Cambiado de flex: 1 */
+    min-width: 130px;
+    max-width: 1000px;
+    text-align: center; /* Centrar texto dentro de cada sección */
+}
+
+/* Secciones */
+.seccion_footer h3,
+.seccion_footer h4 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Texto descriptivo */
+.seccion_footer p {
+    color: #a3aab4;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Listas */
+.seccion_footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.seccion_footer ul li {
+    margin-bottom: 0.6rem;
+}
+
+/* Enlaces */
+.seccion_footer a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.seccion_footer a:hover {
+    color: #00d9ff;
+    transform: translateX(4px);
+}
+
+/* Redes sociales */
+.link_social ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;  
+}
+
+.link_social ul li {
+    margin-bottom: 0.8rem; 
+}
+
+.link_social ul li img {
+    width: 32px; /* Tamaño de las imágenes */
+    height: 32px;
+    transition: transform 0.3s ease;
+}
+
+.link_social ul li img:hover {
+    transform: scale(1.3); /* Efecto hover */
+}
+
+/* Derechos reservados */
+.derechos {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    color: #94a3b8;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN - PÁGINA UBICACIÓN
+   ===================================================== */
+
+/* TABLET (768px - 1024px) */
+@media (max-width: 1024px) {
+    /* Navegación */
+    .menu_navegacion .contenedor {
+        padding: 1rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* Títulos */
+    .titulo h1 {
+        font-size: 3.5rem;
+    }
+
+    .informacion h2 {
+        font-size: 2.8rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Grid de fichas */
+    .contenedor-fichas {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    /* Fichas de información */
+    .ficha_informacion {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .informacion_icono {
+        font-size: 3.5rem;
+    }
+
+    .ficha_informacion h3 {
+        font-size: 1.6rem;
+    }
+
+    .ficha_informacion p {
+        font-size: 1.2rem;
+    }
+
+    /* Mapa */
+    .mapa iframe {
+        height: 400px;
+    }
+}
+
+/* MÓVIL GRANDE (576px - 768px) */
+@media (max-width: 768px) {
+    /* Header y navegación */
+    .menu_navegacion .contenedor {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.8rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    main {
+        margin-top: 120px;
+    }
+
+    /* Títulos */
+    .titulo {
+        padding: 100px 0;
+    }
+
+    .titulo h1 {
+        font-size: 2.8rem;
+    }
+
+    .informacion h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Secciones */
+    .informacion,
+    .mapa {
+        padding: 3rem 0;
+    }
+
+    /* Grid de fichas */
+    .contenedor-fichas {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .ficha_informacion {
+        padding: 2rem 1.5rem;
+    }
+
+    .informacion_icono {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .ficha_informacion h3 {
+        font-size: 1.4rem;
+    }
+
+    .ficha_informacion p {
+        font-size: 1.1rem;
+    }
+
+    .ficha_informacion span {
+        font-size: 0.9rem;
+    }
+
+    /* Mapa */
+    .mapa .contenedor {
+        padding: 0 1rem;
+    }
+
+    .mapa iframe {
+        height: 350px;
+        border-radius: 15px;
+    }
+}
+
+/* MÓVIL PEQUEÑO (hasta 576px) */
+@media (max-width: 576px) {
+    /* Header */
+    .menu_navegacion .contenedor {
+        padding: 0.5rem;
+    }
+
+    nav ul {
+        gap: 0.5rem;
+    }
+
+    nav a {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    main {
+        margin-top: 140px;
+    }
+
+    /* Títulos */
+    .titulo {
+        padding: 80px 0;
+    }
+
+    .titulo h1 {
+        font-size: 2.2rem;
+    }
+
+    .informacion h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Grid de fichas */
+    .contenedor-fichas {
+        gap: 1rem;
+    }
+
+    .ficha_informacion {
+        padding: 1.5rem 1rem;
+    }
+
+    .informacion_icono {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .ficha_informacion h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .ficha_informacion p {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .ficha_informacion span {
+        font-size: 0.8rem;
+    }
+
+    /* Mapa */
+    .mapa {
+        padding: 2rem 0;
+    }
+
+    .mapa .contenedor {
+        padding: 0 0.5rem;
+    }
+
+    .mapa iframe {
+        height: 300px;
+        border-radius: 10px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 2rem 1rem 1rem;
+    }
+
+    .seccion_footer h3,
+    .seccion_footer h4 {
+        font-size: 1.2rem;
+    }
+}
+
+/* MÓVIL MUY PEQUEÑO (hasta 400px) */
+@media (max-width: 400px) {
+    .titulo h1 {
+        font-size: 1.8rem;
+    }
+
+    .informacion h2 {
+        font-size: 1.5rem;
+    }
+
+    .ficha_informacion {
+        padding: 1.2rem 0.8rem;
+    }
+
+    .informacion_icono {
+        font-size: 2rem;
+    }
+
+    .ficha_informacion h3 {
+        font-size: 1.1rem;
+    }
+
+    .ficha_informacion p {
+        font-size: 0.9rem;
+    }
+
+    .mapa iframe {
+        height: 250px;
+    }
+}
+
+/* ACCESIBILIDAD - Reduce movimiento */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
