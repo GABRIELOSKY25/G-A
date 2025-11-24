@@ -67,8 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':contrasena' => $passwordHash
         ]);
 
-        echo "<h1>Registro exitoso 🎉</h1>";
-        echo "<p>El usuario fue guardado correctamente.</p>";
+        // Redirigir a cuenta.php después de registrar
+        header("Location: http://localhost/Proyecto/Paginas/cuenta.php");
+        exit;
+
 
     } catch (PDOException $e) {
         if ($e->getCode() == 23000) {
