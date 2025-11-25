@@ -39,7 +39,7 @@ session_start();
                     <ul>
                         <li><a href = "../index.html"> Inicio </a></li>
                         <li><a href = "catalogo.php"> Catalogo </a></li>
-                        <li><a href = "oferta.html"> Ofertas </a></li>
+                        <li><a href = "oferta.php"> Ofertas </a></li>
                         <li><a href = "ubicacion.html"> Ubicacion </a></li>
                         <li><a href = "carrito.html"> Carrito </a></li>
                         <li><a href = "cuenta.php"> Cuenta </a></li>
@@ -145,7 +145,7 @@ session_start();
                     <ul>
                         <li><a href = "../index.html"> Inicio </a></li>
                         <li><a href = "./catalogo.php"> Catalogo </a></li>
-                        <li><a href = "./oferta.html"> Ofertas </a></li>
+                        <li><a href = "./oferta.php"> Ofertas </a></li>
                         <li><a href = "./ubicacion.html"> Ubicación </a></li>
                         <li><a href = "./carrito.html"> Carrito </a></li>
                     </ul>
