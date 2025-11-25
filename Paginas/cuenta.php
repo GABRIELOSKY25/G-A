@@ -38,7 +38,7 @@ session_start();
                     <!--Lista no ordenada-->
                     <ul>
                         <li><a href = "../index.html"> Inicio </a></li>
-                        <li><a href = "catalogo.html"> Catalogo </a></li>
+                        <li><a href = "catalogo.php"> Catalogo </a></li>
                         <li><a href = "oferta.html"> Ofertas </a></li>
                         <li><a href = "ubicacion.html"> Ubicacion </a></li>
                         <li><a href = "carrito.html"> Carrito </a></li>
@@ -73,20 +73,6 @@ session_start();
                                     </button>
                                 </form>
                             </div>
-
-                            <!-- Beneficios (puedes dejarlo igual) -->
-                            <div class = "beneficios">
-                                <h2> Tu cuenta G&A </h2>
-                                <ul>
-                                    <li> 🎮 Accede a tus juegos y compras recientes </li>
-                                    <li> 📦 Consulta tu historial de pedidos </li>
-                                    <li> 🎯 Recomendaciones según tus gustos </li>
-                                    <li> ⭐ Administra tus listas de deseos </li>
-                                    <li> 🛡️ Soporte rápido y personalizado </li>
-                                    <li> 🏆 Acceso a tus puntos y recompensas </li>
-                                </ul>
-                            </div>
-
                         <?php else: ?>
                             <!-- ===== VISTA CUANDO NO HAY SESIÓN (FORMULARIO) ===== -->
 
@@ -136,19 +122,6 @@ session_start();
                                     </p>
                                 </form>
                             </div>
-                            
-                            <!-- Beneficios de iniciar sesion -->
-                            <div class = "beneficios">
-                                <h2> Ventajas de iniciar sesión </h2>
-                                <ul>
-                                    <li> 🎮 Accede a tus juegos y compras recientes </li>
-                                    <li> 📦 Consulta tu historial de pedidos </li>
-                                    <li> 🎯 Recomendaciones según tus gustos </li>
-                                    <li> ⭐ Administra tus listas de deseos </li>
-                                    <li> 🛡️ Soporte rápido y personalizado </li>
-                                    <li> 🏆 Acceso a tus puntos y recompensas </li>
-                                </ul>
-                            </div>
                         <?php endif; ?>
 
                     </div>
@@ -171,7 +144,7 @@ session_start();
                     <h4> Descurbir </h4>
                     <ul>
                         <li><a href = "../index.html"> Inicio </a></li>
-                        <li><a href = "./catalogo.html"> Catalogo </a></li>
+                        <li><a href = "./catalogo.php"> Catalogo </a></li>
                         <li><a href = "./oferta.html"> Ofertas </a></li>
                         <li><a href = "./ubicacion.html"> Ubicación </a></li>
                         <li><a href = "./carrito.html"> Carrito </a></li>
