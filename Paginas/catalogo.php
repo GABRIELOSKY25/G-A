@@ -240,7 +240,7 @@ function obtenerRutaImagen($db_imagen) {
                 <div class="seccion_footer">
                     <h4> Soporte </h4>
                     <ul>
-                        <li><a href="./soporte.html"> Soporte </a></li>
+                        <li><a href="./soporte.php"> Soporte </a></li>
                         <li><a href="./cuenta.php"> Cuenta </a></li>
                     </ul>
                 </div>
