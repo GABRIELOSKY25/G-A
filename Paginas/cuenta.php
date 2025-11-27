@@ -73,6 +73,20 @@ session_start();
                                     </button>
                                 </form>
                             </div>
+
+                            <!-- Beneficios (puedes dejarlo igual) -->
+                            <div class = "beneficios">
+                                <h2> Tu cuenta G&A </h2>
+                                <ul>
+                                    <li> 🎮 Accede a tus juegos y compras recientes </li>
+                                    <li> 📦 Consulta tu historial de pedidos </li>
+                                    <li> 🎯 Recomendaciones según tus gustos </li>
+                                    <li> ⭐ Administra tus listas de deseos </li>
+                                    <li> 🛡️ Soporte rápido y personalizado </li>
+                                    <li> 🏆 Acceso a tus puntos y recompensas </li>
+                                </ul>
+                            </div>
+
                         <?php else: ?>
                             <!-- ===== VISTA CUANDO NO HAY SESIÓN (FORMULARIO) ===== -->
 
@@ -121,6 +135,19 @@ session_start();
                                         <a href = "login.html" class = "link"> Crear cuenta </a>
                                     </p>
                                 </form>
+                            </div>
+                            
+                            <!-- Beneficios de iniciar sesion -->
+                            <div class = "beneficios">
+                                <h2> Ventajas de iniciar sesión </h2>
+                                <ul>
+                                    <li> 🎮 Accede a tus juegos y compras recientes </li>
+                                    <li> 📦 Consulta tu historial de pedidos </li>
+                                    <li> 🎯 Recomendaciones según tus gustos </li>
+                                    <li> ⭐ Administra tus listas de deseos </li>
+                                    <li> 🛡️ Soporte rápido y personalizado </li>
+                                    <li> 🏆 Acceso a tus puntos y recompensas </li>
+                                </ul>
                             </div>
                         <?php endif; ?>
 

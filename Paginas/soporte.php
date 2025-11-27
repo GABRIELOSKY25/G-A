@@ -1,3 +1,43 @@
+<?php
+require_once '../src/Database.php'; // o como lo tengas
+
+$mensajeExito = '';
+$mensajeError = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $nombre  = $_POST['name']    ?? '';
+    $correo  = $_POST['email']   ?? '';
+    $tipo    = $_POST['subject'] ?? '';
+    $mensaje = $_POST['message'] ?? '';
+
+    if (!empty($correo) && !empty($tipo) && !empty($mensaje)) {
+
+        try {
+            // OBTENER CONEXIÓN PDO
+            $conexion = Database::getConnection();
+
+            // Consulta preparada PDO
+            $sql = "INSERT INTO Reporte (correo, mensaje, tipo) VALUES (?, ?, ?)";
+            $stmt = $conexion->prepare($sql);
+
+            // Ejecutar
+            $stmt->execute([$correo, $mensaje, $tipo]);
+
+            $mensajeExito = "Mensaje enviado correctamente. Te contactaremos pronto.";
+
+        } catch (PDOException $e) {
+            // Si el correo NO existe en "Usuario", fallará la FOREIGN KEY
+            $mensajeError = "Error al guardar el reporte: " . $e->getMessage();
+        }
+
+    } else {
+        $mensajeError = "Faltan datos obligatorios.";
+    }
+}
+?>
+
+
 <!--Version de HTML-->
 <!DOCTYPE html>
 <!--Inicio de la pagiona web-->
@@ -60,26 +100,39 @@
                 <div class = "contenedor">
                     <div class = "registro_contenedor">
                         <h2> Envíanos un mensaje </h2>
-                        <form class = "contacto_registro" @submit.prevent="validarFormulario">
+                        <form class="contacto_registro"method="POST"action="soporte.php"@submit.prevent="validarFormulario">
+
                             <div class="formulario">
                                 <div class="formulario_grupo">
                                     <label for="name">Nombre</label>
-                                    <input type="text" id="name" name="name" v-model="formData.name" 
-                                        @blur="validarNombre" required placeholder="Tu nombre">
+                                    <input type="text" id="name" name="name"
+                                        v-model="formData.name"
+                                        @input="validarNombre"
+                                        :class="getFieldClass('name')"
+                                        required
+                                        placeholder="Tu nombre">
                                     <span class="error-message" v-if="errores.name">{{ errores.name }}</span>
                                 </div>
+
                                 <div class="formulario_grupo">
                                     <label for="email">Correo electrónico</label>
-                                    <input type="email" id="email" name="email" v-model="formData.email" 
-                                        @blur="validarEmail" required placeholder="tu@email.com">
+                                    <input type="email" id="email" name="email"
+                                        v-model="formData.email"
+                                        @input="validarEmail"
+                                        :class="getFieldClass('email')"
+                                        required
+                                        placeholder="tu@email.com">
                                     <span class="error-message" v-if="errores.email">{{ errores.email }}</span>
                                 </div>
                             </div>
                             
                             <div class="formulario_grupo">
                                 <label for="subject">Asunto</label>
-                                <select id="subject" name="subject" v-model="formData.subject" 
-                                        @change="validarAsunto" required>
+                                <select id="subject" name="subject"
+                                        v-model="formData.subject"
+                                        @change="validarSubject"
+                                        :class="getFieldClass('subject')"
+                                        required>
                                     <option value="">Selecciona un asunto</option>
                                     <option value="soporte">Soporte técnico</option>
                                     <option value="ventas">Consultas de ventas</option>
@@ -92,10 +145,15 @@
                             
                             <div class="formulario_grupo">
                                 <label for="message">Mensaje</label>
-                                <textarea id="message" name="message" rows="6" v-model="formData.message" 
-                                        @blur="validarMensaje" required placeholder="Describe tu consulta en detalle..."></textarea>
+                                <textarea id="message" name="message" rows="6"
+                                    v-model="formData.message"
+                                    @input="validarMensaje"
+                                    :class="getFieldClass('message')"
+                                    required
+                                    placeholder="Describe tu consulta en detalle..."></textarea>
                                 <span class="error-message" v-if="errores.message">{{ errores.message }}</span>
                             </div>
+
                             
                             <button type="submit" class="btn-primary" :disabled="!formularioValido">Enviar mensaje</button>
                         </form>
@@ -218,97 +276,105 @@
     </footer>
 
     <script>
-        const { createApp } = Vue;
+    const { createApp } = Vue;
 
-        createApp({
-            data() {
-                return {
-                    formData: {
-                        name: '',
-                        email: '',
-                        subject: '',
-                        message: ''
-                    },
-                    errores: {
-                        name: '',
-                        email: '',
-                        subject: '',
-                        message: ''
-                    }
-                }
-            },
-            computed: {
-                formularioValido() {
-                    return Object.values(this.errores).every(error => error === '') && 
-                        Object.values(this.formData).every(field => field !== '');
-                }
-            },
-            methods: {
-                validarNombre() {
-                    if (!this.formData.name.trim()) {
-                        this.errores.name = 'El nombre es obligatorio';
-                    } else if (this.formData.name.trim().length < 2) {
-                        this.errores.name = 'El nombre debe tener al menos 2 caracteres';
-                    } else {
-                        this.errores.name = '';
-                    }
+    createApp({
+        data() {
+            return {
+                formData: {
+                    name: '',
+                    email: '',
+                    subject: '',
+                    message: ''
                 },
-                
-                validarEmail() {
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!this.formData.email) {
-                        this.errores.email = 'El correo electrónico es obligatorio';
-                    } else if (!emailRegex.test(this.formData.email)) {
-                        this.errores.email = 'Por favor ingresa un correo electrónico válido';
-                    } else {
-                        this.errores.email = '';
-                    }
-                },
-                
-                validarAsunto() {
-                    if (!this.formData.subject) {
-                        this.errores.subject = 'Por favor selecciona un asunto';
-                    } else {
-                        this.errores.subject = '';
-                    }
-                },
-                
-                validarMensaje() {
-                    if (!this.formData.message.trim()) {
-                        this.errores.message = 'El mensaje es obligatorio';
-                    } else if (this.formData.message.trim().length < 10) {
-                        this.errores.message = 'El mensaje debe tener al menos 10 caracteres';
-                    } else {
-                        this.errores.message = '';
-                    }
-                },
-                
-                validarFormulario() {
-                    this.validarNombre();
-                    this.validarEmail();
-                    this.validarAsunto();
-                    this.validarMensaje();
-                    
-                    if (this.formularioValido) {
-                        this.enviarFormulario();
-                    }
-                },
-                
-                enviarFormulario() {
-                    console.log('Formulario enviado:', this.formData);
-                    alert('Mensaje enviado correctamente. Te contactaremos pronto.');
-                    
-                    // Limpiar formulario
-                    this.formData = {
-                        name: '',
-                        email: '',
-                        subject: '',
-                        message: ''
-                    };
+                errores: {
+                    name: '',
+                    email: '',
+                    subject: '',
+                    message: ''
                 }
             }
-        }).mount('main');
+        },
+
+        computed: {
+            formularioValido() {
+                return (
+                    this.formData.name.trim()    !== '' &&
+                    this.formData.email.trim()   !== '' &&
+                    this.formData.subject.trim() !== '' &&
+                    this.formData.message.trim() !== '' &&
+                    Object.values(this.errores).every(e => e === '')
+                );
+            }
+        },
+
+        methods: {
+            getFieldClass(field) {
+                if (this.errores[field]) {
+                    return 'error';      // borde rojo
+                }
+                if (this.formData[field] && !this.errores[field]) {
+                    return 'valid';      // borde verde
+                }
+                return '';
+            },
+
+            validarNombre() {
+                if (!this.formData.name.trim()) {
+                    this.errores.name = 'El nombre es obligatorio';
+                } else if (this.formData.name.trim().length < 2) {
+                    this.errores.name = 'El nombre debe tener al menos 2 caracteres';
+                } else {
+                    this.errores.name = '';
+                }
+            },
+
+            validarEmail() {
+                const r = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!this.formData.email.trim()) {
+                    this.errores.email = 'El correo electrónico es obligatorio';
+                } else if (!r.test(this.formData.email)) {
+                    this.errores.email = 'Por favor ingresa un correo electrónico válido';
+                } else {
+                    this.errores.email = '';
+                }
+            },
+
+            validarSubject() {
+                if (!this.formData.subject.trim()) {
+                    this.errores.subject = 'Por favor selecciona un asunto';
+                } else {
+                    this.errores.subject = '';
+                }
+            },
+
+            validarMensaje() {
+                if (!this.formData.message.trim()) {
+                    this.errores.message = 'El mensaje es obligatorio';
+                } else if (this.formData.message.trim().length < 10) {
+                    this.errores.message = 'El mensaje debe tener al menos 10 caracteres';
+                } else {
+                    this.errores.message = '';
+                }
+            },
+
+            validarFormulario(event) {
+                this.validarNombre();
+                this.validarEmail();
+                this.validarSubject();
+                this.validarMensaje();
+
+                if (this.formularioValido) {
+                    // Igual que en login: si todo bien, lo mandamos al PHP
+                    event.target.submit();
+                }
+            }
+        }
+    }).mount('main');
     </script>
+
+
 
     <!-- Archivo JavaScript -->
     <script src = "../JavaScript/carrito.js"></script>

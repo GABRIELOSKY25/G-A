@@ -361,6 +361,19 @@ main {
     font-weight: 500;
 }
 
+input.error, select.error, textarea.error {
+    border: 2px solid #e74c3c;
+}
+
+input.valid, select.valid, textarea.valid {
+    border: 2px solid #2ecc71;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+}
+
 /* ===== ESTILOS PARA VALIDACIÓN VUE.JS ===== */
 .error-message {
     color: #ff6b6b;
