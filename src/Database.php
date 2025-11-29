@@ -1,15 +1,19 @@
 <?php
 class Database
 {
-    private static $host     = 'localhost';
+    private static $host     = '127.0.0.1';
+    private static $port     = '3308';
     private static $dbname   = 'g_a';     
     private static $user     = 'root';      
-    private static $password = 'peresoso888';
+    private static $password = '';
     private static $charset  = 'utf8mb4';
 
     public static function getConnection()
     {
-        $dsn = "mysql:host=" . self::$host . ";dbname=" . self::$dbname . ";charset=" . self::$charset;
+        $dsn = "mysql:host=" . self::$host . 
+               ";port=" . self::$port . 
+               ";dbname=" . self::$dbname . 
+               ";charset=" . self::$charset;
 
         try {
             $pdo = new PDO($dsn, self::$user, self::$password);
@@ -21,4 +25,3 @@ class Database
         }
     }
 }
-

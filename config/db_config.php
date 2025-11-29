@@ -1,7 +1,7 @@
 <?php
 // config/db_config.php
 
-define('DB_HOST', '127.0.0.1'); 
+define('DB_HOST', 'localhost'); 
 define('DB_USER', 'root');      
 define('DB_PASS', '');          // Contraseña vacía
 define('DB_NAME', 'g_a');       // Asegúrate de que este sea el nombre de tu DB
